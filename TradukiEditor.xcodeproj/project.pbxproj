@@ -1,0 +1,331 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F332E5EE1F274DA800841263 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F332E5ED1F274DA800841263 /* AppDelegate.swift */; };
+		F332E5F21F274DA800841263 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F332E5F11F274DA800841263 /* Assets.xcassets */; };
+		F332E5F51F274DA800841263 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F332E5F31F274DA800841263 /* Main.storyboard */; };
+		F332E6061F283F0100841263 /* DotKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F332E6051F283F0100841263 /* DotKey.swift */; };
+		F332E60B1F283F1900841263 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F332E6081F283F1900841263 /* DetailViewController.swift */; };
+		F332E60C1F283F1900841263 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F332E6091F283F1900841263 /* MainViewController.swift */; };
+		F332E60D1F283F1900841263 /* OutlineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F332E60A1F283F1900841263 /* OutlineViewController.swift */; };
+		F332E60F1F283F6400841263 /* Traduki.swift in Sources */ = {isa = PBXBuildFile; fileRef = F332E60E1F283F6400841263 /* Traduki.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F332E5EA1F274DA800841263 /* TradukiEditor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TradukiEditor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F332E5ED1F274DA800841263 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F332E5F11F274DA800841263 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F332E5F41F274DA800841263 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F332E5F61F274DA800841263 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F332E6051F283F0100841263 /* DotKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DotKey.swift; sourceTree = "<group>"; };
+		F332E6081F283F1900841263 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		F332E6091F283F1900841263 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		F332E60A1F283F1900841263 /* OutlineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutlineViewController.swift; sourceTree = "<group>"; };
+		F332E60E1F283F6400841263 /* Traduki.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Traduki.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F332E5E71F274DA800841263 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F332E5E11F274DA800841263 = {
+			isa = PBXGroup;
+			children = (
+				F332E5EC1F274DA800841263 /* TradukiEditor */,
+				F332E5EB1F274DA800841263 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F332E5EB1F274DA800841263 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F332E5EA1F274DA800841263 /* TradukiEditor.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F332E5EC1F274DA800841263 /* TradukiEditor */ = {
+			isa = PBXGroup;
+			children = (
+				F332E6071F283F1900841263 /* Controllers */,
+				F332E6041F283F0100841263 /* Models */,
+				F332E5ED1F274DA800841263 /* AppDelegate.swift */,
+				F332E5F11F274DA800841263 /* Assets.xcassets */,
+				F332E5F31F274DA800841263 /* Main.storyboard */,
+				F332E5F61F274DA800841263 /* Info.plist */,
+			);
+			path = TradukiEditor;
+			sourceTree = "<group>";
+		};
+		F332E6041F283F0100841263 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F332E6051F283F0100841263 /* DotKey.swift */,
+				F332E60E1F283F6400841263 /* Traduki.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F332E6071F283F1900841263 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F332E6091F283F1900841263 /* MainViewController.swift */,
+				F332E60A1F283F1900841263 /* OutlineViewController.swift */,
+				F332E6081F283F1900841263 /* DetailViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F332E5E91F274DA800841263 /* TradukiEditor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F332E5F91F274DA800841263 /* Build configuration list for PBXNativeTarget "TradukiEditor" */;
+			buildPhases = (
+				F332E5E61F274DA800841263 /* Sources */,
+				F332E5E71F274DA800841263 /* Frameworks */,
+				F332E5E81F274DA800841263 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TradukiEditor;
+			productName = TradukiEditor;
+			productReference = F332E5EA1F274DA800841263 /* TradukiEditor.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F332E5E21F274DA800841263 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Vergil Choi";
+				TargetAttributes = {
+					F332E5E91F274DA800841263 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = FW5RP64939;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = F332E5E51F274DA800841263 /* Build configuration list for PBXProject "TradukiEditor" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F332E5E11F274DA800841263;
+			productRefGroup = F332E5EB1F274DA800841263 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F332E5E91F274DA800841263 /* TradukiEditor */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F332E5E81F274DA800841263 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F332E5F21F274DA800841263 /* Assets.xcassets in Resources */,
+				F332E5F51F274DA800841263 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F332E5E61F274DA800841263 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F332E60C1F283F1900841263 /* MainViewController.swift in Sources */,
+				F332E5EE1F274DA800841263 /* AppDelegate.swift in Sources */,
+				F332E60F1F283F6400841263 /* Traduki.swift in Sources */,
+				F332E6061F283F0100841263 /* DotKey.swift in Sources */,
+				F332E60B1F283F1900841263 /* DetailViewController.swift in Sources */,
+				F332E60D1F283F1900841263 /* OutlineViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F332E5F31F274DA800841263 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F332E5F41F274DA800841263 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F332E5F71F274DA800841263 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F332E5F81F274DA800841263 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+			};
+			name = Release;
+		};
+		F332E5FA1F274DA800841263 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = FW5RP64939;
+				INFOPLIST_FILE = TradukiEditor/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vergilchoi.traduki.editor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		F332E5FB1F274DA800841263 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = FW5RP64939;
+				INFOPLIST_FILE = TradukiEditor/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vergilchoi.traduki.editor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F332E5E51F274DA800841263 /* Build configuration list for PBXProject "TradukiEditor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F332E5F71F274DA800841263 /* Debug */,
+				F332E5F81F274DA800841263 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F332E5F91F274DA800841263 /* Build configuration list for PBXNativeTarget "TradukiEditor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F332E5FA1F274DA800841263 /* Debug */,
+				F332E5FB1F274DA800841263 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F332E5E21F274DA800841263 /* Project object */;
+}
