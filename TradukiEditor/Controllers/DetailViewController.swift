@@ -17,6 +17,7 @@ class DetailViewController: NSViewController, NSTextViewDelegate {
     }
     
     @IBOutlet weak var saveButton: NSButton!
+    @IBOutlet weak var reloadButton: NSButton!
     @IBOutlet weak var detailTitle: NSTextField!
     
     @IBOutlet weak var propmtLabel: NSTextField!
@@ -28,6 +29,9 @@ class DetailViewController: NSViewController, NSTextViewDelegate {
     @IBOutlet weak var langButton: NSPopUpButton!
     
     @IBOutlet weak var placeholderButtonsView: NSView!
+    
+    @IBOutlet weak var firstLangLabel: NSTextField!
+    @IBOutlet weak var firstTransLabel: NSTextField!
     
     
     override func viewDidLoad() {
@@ -41,9 +45,14 @@ class DetailViewController: NSViewController, NSTextViewDelegate {
     }
     
     func loadLanguages() {
+        langButton.removeAllItems()
         langButton.addItems(withTitles: Traduki.current!.config.languages)
         langButton.selectItem(at: 0)
+        reloadButton.isEnabled = true
         saveButton.isEnabled = true
+        if let first = Traduki.current!.config.languages.first {
+            firstLangLabel.stringValue = first
+        }
     }
     
     func reloadData() {
@@ -65,6 +74,11 @@ class DetailViewController: NSViewController, NSTextViewDelegate {
             }
             occurencesTextField.stringValue = occurencesString
             
+            // Set first language translation
+            if let lang = Traduki.current!.config.languages.first, let trans = k.translations[lang] {
+                firstTransLabel.stringValue = trans
+            }
+            
             // Set translation
             if let seleted = langButton.selectedItem, let trans = k.translations[seleted.title] {
                 textScrollView.isHidden = false
@@ -76,7 +90,6 @@ class DetailViewController: NSViewController, NSTextViewDelegate {
             }
             
             // Set placeholders
-           
             var buttons: [NSButton] = []
             for (i, o) in k.placeholders.enumerated() {
                 let button = NSButton.init(title: o, target: self, action: #selector(placeholderButtonClicked(_:)))
@@ -91,6 +104,7 @@ class DetailViewController: NSViewController, NSTextViewDelegate {
             detailTitle.cell?.title = "Select a Key at left"
             descTextField.stringValue = ""
             occurencesTextField.stringValue = ""
+            firstTransLabel.stringValue = ""
             propmtLabel.isHidden = true
             textScrollView.isHidden = true
         }

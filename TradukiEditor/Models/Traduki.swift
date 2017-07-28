@@ -98,7 +98,7 @@ class Traduki: NSObject {
     }
     
     func setTrans(by dotkey: String, for lang: String, text trans: String) {
-        print(dotkey, lang, trans)
+//        print(dotkey, lang, trans)
         if let translations = self.languages[lang] {
             let components = dotkey.components(separatedBy: ".")
             self.languages[lang] = setDictionary(dict: translations, value: trans, by: components)

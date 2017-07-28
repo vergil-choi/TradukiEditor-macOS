@@ -53,6 +53,10 @@ class MainViewController: NSSplitViewController {
         }
     }
     
+    func reload(_ sender: Any) {
+        reloadData()
+    }
+    
     func reloadData() {
         if let dir = self.workdir {
             let traduki = Traduki.init(dir)
@@ -60,6 +64,9 @@ class MainViewController: NSSplitViewController {
                 if let controller = item.viewController as? OutlineViewController  {
                     controller.keys = [traduki.rootKey]
                     controller.host = self
+                }
+                if let controller = item.viewController as? DetailViewController {
+                    controller.key = nil
                 }
             }
         }

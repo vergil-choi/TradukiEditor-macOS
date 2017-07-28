@@ -14,6 +14,7 @@ class OutlineViewController: NSViewController, NSOutlineViewDataSource, NSOutlin
     var keys: [Dotkey] = [] {
         didSet {
             outlineView.reloadData()
+            outlineView.expandItem(nil, expandChildren: true)
         }
     }
     
@@ -24,6 +25,16 @@ class OutlineViewController: NSViewController, NSOutlineViewDataSource, NSOutlin
         // Do view setup here.
         
     }
+    
+    @IBAction func expandButtonClicked(_ sender: Any) {
+        outlineView.expandItem(nil, expandChildren: true)
+    }
+    
+    @IBAction func collapseButtonClicked(_ sender: Any) {
+        outlineView.collapseItem(nil, collapseChildren: true)
+    }
+    
+    
     
     func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
         if let key = item as? Dotkey {
