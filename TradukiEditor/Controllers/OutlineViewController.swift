@@ -8,9 +8,13 @@
 
 import Cocoa
 
-class OutlineViewController: NSViewController, NSOutlineViewDataSource, NSOutlineViewDelegate {
+class OutlineViewController: NSViewController, NSOutlineViewDataSource, NSOutlineViewDelegate, NSSearchFieldDelegate {
 
+    @IBOutlet weak var searchField: NSSearchField!
+    @IBOutlet weak var topTabBottomLine: NSView!
     @IBOutlet weak var outlineView: NSOutlineView!
+    @IBOutlet weak var searchTypeMenu: NSPopUpButton!
+    
     var keys: [Dotkey] = [] {
         didSet {
             outlineView.reloadData()
@@ -20,10 +24,19 @@ class OutlineViewController: NSViewController, NSOutlineViewDataSource, NSOutlin
     
     var host: MainViewController!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do view setup here.
         
+        searchField.focusRingType = .none
+        
+        
+    }
+    
+    override func viewWillAppear() {
+        super.viewWillAppear()
+        topTabBottomLine.wantsLayer = true
+        topTabBottomLine.layer?.backgroundColor = NSColor(white: 0.83, alpha: 1.0).cgColor
     }
     
     @IBAction func expandButtonClicked(_ sender: Any) {
@@ -63,7 +76,7 @@ class OutlineViewController: NSViewController, NSOutlineViewDataSource, NSOutlin
         if let key = item as? Dotkey {
             view = outlineView.make(withIdentifier: "dotkey", owner: self) as? NSTableCellView
             if let textField = view?.textField {
-                textField.stringValue = key.name
+                textField.stringValue = key.displayName
                 textField.sizeToFit()
             }
         }
@@ -81,5 +94,28 @@ class OutlineViewController: NSViewController, NSOutlineViewDataSource, NSOutlin
         host.selectedKey = outlineView.item(atRow: selectedIndex) as? Dotkey
         
     }
+
+    @IBAction func searchTypeChanged(_ sender: Any) {
+        searchChanged(searchField)
+    }
+    
+    @IBAction func searchChanged(_ sender: NSSearchField) {
+        if let traduki = Traduki.current {
+            if sender.stringValue.lengthOfBytes(using: .utf8) > 0 {
+                switch searchTypeMenu.indexOfSelectedItem {
+                case 0:
+                    keys = traduki.search(sender.stringValue, .key)
+                case 1:
+                    keys = traduki.search(sender.stringValue, .content)
+                default:
+                    keys = traduki.search(sender.stringValue, .key)
+                }
+                
+            } else {
+                keys = [traduki.rootKey]
+            }
+        }
+    }
+    
     
 }

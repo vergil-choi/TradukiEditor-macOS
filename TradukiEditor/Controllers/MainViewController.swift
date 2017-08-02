@@ -36,6 +36,26 @@ class MainViewController: NSSplitViewController {
     }
     
     func openDocument(_ sender: Any) {
+        
+        if let traduki = Traduki.current, !traduki.isSaved {
+            let alert = NSAlert()
+            alert.messageText = "You have changed some translations, are you sure to close without save?"
+            alert.alertStyle = .warning
+            alert.addButton(withTitle: "Save")
+            alert.addButton(withTitle: "Cancel")
+            alert.addButton(withTitle: "Discard")
+            switch alert.runModal() {
+            case NSAlertFirstButtonReturn:
+                traduki.save()
+            case NSAlertSecondButtonReturn:
+                return
+            case NSAlertThirdButtonReturn:
+                break
+            default:
+                break
+            }
+        }
+        
         let panel = NSOpenPanel()
         panel.title = "Select Languages Directory"
         panel.canChooseDirectories = true
@@ -54,6 +74,21 @@ class MainViewController: NSSplitViewController {
     }
     
     func reload(_ sender: Any) {
+        
+        if let traduki = Traduki.current, !traduki.isSaved {
+            let alert = NSAlert()
+            alert.messageText = "Any changes will not be saved, are you sure to reload?"
+            alert.alertStyle = .warning
+            alert.addButton(withTitle: "Cancel")
+            alert.addButton(withTitle: "Reload")
+            switch alert.runModal() {
+            case NSAlertFirstButtonReturn:
+                return
+            default:
+                break
+            }
+        }
+        
         reloadData()
     }
     
@@ -71,8 +106,5 @@ class MainViewController: NSSplitViewController {
             }
         }
     }
-    
-    override func viewDidDisappear() {
-        exit(0)
-    }
+
 }

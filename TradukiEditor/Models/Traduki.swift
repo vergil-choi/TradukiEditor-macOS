@@ -16,10 +16,16 @@ class Traduki: NSObject {
         var path = "Languages"
     }
     
+    enum SearchType {
+        case key
+        case content
+    }
+    
     let workdir: URL
     var config = Config()
     var languages: [String: [String: Any]] = [:]
     var metadata: [String: [String: Any]] = [:]
+    var isSaved = true
     
     lazy var rootKey: Dotkey = {
         let root = Dotkey()
@@ -66,12 +72,48 @@ class Traduki: NSObject {
         
         NotificationCenter.default.post(Notification.init(name: Notification.Name(rawValue: "traduki.loaded")))
     }
+    
+    func setTrans(by dotkey: String, for lang: String, text trans: String) {
+        //        print(dotkey, lang, trans)
+        if let translations = self.languages[lang] {
+            isSaved = false
+            let components = dotkey.components(separatedBy: ".")
+            self.languages[lang] = setDictionary(dict: translations, value: trans, by: components)
+        }
+    }
+    
+    func search(_ keyword: String, _ type: SearchType) -> [Dotkey] {
+        return traversalDotkeys(root: rootKey, keyword: keyword, type: type)
+    }
 
     func save() {
 //        print(languages)
         for (lang, trans) in languages {
             saveJSON(name: lang, json: trans)
         }
+        isSaved = true
+    }
+    
+    private func traversalDotkeys(root: Dotkey, keyword: String, type: SearchType) -> [Dotkey] {
+        var result: [Dotkey] = []
+        switch type {
+        case .key:
+            if let _ = root.name.range(of: keyword) {
+                result.append(root)
+            }
+        case .content:
+            for (_, trans) in root.translations {
+                if let _ = trans.range(of: keyword) {
+                    result.append(root)
+                    break
+                }
+            }
+        }
+        
+        for key in root.children {
+            result.append(contentsOf: traversalDotkeys(root: key, keyword: keyword, type: type))
+        }
+        return result
     }
     
     private func loadJSON(name: String) -> [String: Any]? {
@@ -95,14 +137,6 @@ class Traduki: NSObject {
             alert.runModal()
         }
         
-    }
-    
-    func setTrans(by dotkey: String, for lang: String, text trans: String) {
-//        print(dotkey, lang, trans)
-        if let translations = self.languages[lang] {
-            let components = dotkey.components(separatedBy: ".")
-            self.languages[lang] = setDictionary(dict: translations, value: trans, by: components)
-        }
     }
     
     private func setDictionary(dict: [String: Any], value: Any, by keys: [String]) -> [String: Any] {

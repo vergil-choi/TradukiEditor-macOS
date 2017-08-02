@@ -38,7 +38,6 @@ class DetailViewController: NSViewController, NSTextViewDelegate {
         super.viewDidLoad()
         // Do view setup here.
         translationTextView.focusRingType = .none
-        
         langButton.removeAllItems()
         
         NotificationCenter.default.addObserver(self, selector: #selector(loadLanguages), name: NSNotification.Name(rawValue: "traduki.loaded"), object: nil)
@@ -87,6 +86,7 @@ class DetailViewController: NSViewController, NSTextViewDelegate {
             } else {
                 textScrollView.isHidden = true
                 propmtLabel.isHidden = false
+                firstTransLabel.stringValue = ""
             }
             
             // Set placeholders

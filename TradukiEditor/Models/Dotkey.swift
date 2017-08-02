@@ -18,6 +18,29 @@ class Dotkey: NSObject {
     }
     private var _children: [String: Dotkey] = [:]
     var name: String = "Unknown"
+    var displayName: String {
+        get {
+            let components = name.components(separatedBy: "-")
+            var newString = ""
+            for (index, component) in components.enumerated() {
+                newString += component.capitalizingFirstLetter()
+                if index < components.count - 1 {
+                    newString += " "
+                }
+            }
+            var result = ""
+            var last = ""
+            for char in newString.characters {
+                let regex = try! NSRegularExpression(pattern: "[A-Z]", options: [])
+                if let _ = regex.firstMatch(in: String.init(char), options: [], range: NSMakeRange(0, 1)), last != " " {
+                    result += " "
+                }
+                result += String.init(char)
+                last = String.init(char)
+            }
+            return result
+        }
+    }
     var fullname: String = ""
     var translations: [String: String] = [:]
     var occurences: [String] = []
@@ -57,5 +80,17 @@ class Dotkey: NSObject {
             }
             return "\(name)"
         }
+    }
+}
+
+extension String {
+    func capitalizingFirstLetter() -> String {
+        let first = String(characters.prefix(1)).capitalized
+        let other = String(characters.dropFirst())
+        return first + other
+    }
+    
+    mutating func capitalizeFirstLetter() {
+        self = self.capitalizingFirstLetter()
     }
 }

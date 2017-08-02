@@ -10,11 +10,12 @@
 		F332E5EE1F274DA800841263 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F332E5ED1F274DA800841263 /* AppDelegate.swift */; };
 		F332E5F21F274DA800841263 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F332E5F11F274DA800841263 /* Assets.xcassets */; };
 		F332E5F51F274DA800841263 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F332E5F31F274DA800841263 /* Main.storyboard */; };
-		F332E6061F283F0100841263 /* DotKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F332E6051F283F0100841263 /* DotKey.swift */; };
+		F332E6061F283F0100841263 /* Dotkey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F332E6051F283F0100841263 /* Dotkey.swift */; };
 		F332E60B1F283F1900841263 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F332E6081F283F1900841263 /* DetailViewController.swift */; };
 		F332E60C1F283F1900841263 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F332E6091F283F1900841263 /* MainViewController.swift */; };
 		F332E60D1F283F1900841263 /* OutlineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F332E60A1F283F1900841263 /* OutlineViewController.swift */; };
 		F332E60F1F283F6400841263 /* Traduki.swift in Sources */ = {isa = PBXBuildFile; fileRef = F332E60E1F283F6400841263 /* Traduki.swift */; };
+		F386ABB01F3019CD007B7FCB /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F386ABAF1F3019CC007B7FCB /* MainWindowController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,11 +24,12 @@
 		F332E5F11F274DA800841263 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F332E5F41F274DA800841263 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F332E5F61F274DA800841263 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F332E6051F283F0100841263 /* DotKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DotKey.swift; sourceTree = "<group>"; };
+		F332E6051F283F0100841263 /* Dotkey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dotkey.swift; sourceTree = "<group>"; };
 		F332E6081F283F1900841263 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		F332E6091F283F1900841263 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		F332E60A1F283F1900841263 /* OutlineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutlineViewController.swift; sourceTree = "<group>"; };
 		F332E60E1F283F6400841263 /* Traduki.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Traduki.swift; sourceTree = "<group>"; };
+		F386ABAF1F3019CC007B7FCB /* MainWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +75,7 @@
 		F332E6041F283F0100841263 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				F332E6051F283F0100841263 /* DotKey.swift */,
+				F332E6051F283F0100841263 /* Dotkey.swift */,
 				F332E60E1F283F6400841263 /* Traduki.swift */,
 			);
 			path = Models;
@@ -83,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				F332E6091F283F1900841263 /* MainViewController.swift */,
+				F386ABAF1F3019CC007B7FCB /* MainWindowController.swift */,
 				F332E60A1F283F1900841263 /* OutlineViewController.swift */,
 				F332E6081F283F1900841263 /* DetailViewController.swift */,
 			);
@@ -162,9 +165,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F332E60C1F283F1900841263 /* MainViewController.swift in Sources */,
+				F386ABB01F3019CD007B7FCB /* MainWindowController.swift in Sources */,
 				F332E5EE1F274DA800841263 /* AppDelegate.swift in Sources */,
 				F332E60F1F283F6400841263 /* Traduki.swift in Sources */,
-				F332E6061F283F0100841263 /* DotKey.swift in Sources */,
+				F332E6061F283F0100841263 /* Dotkey.swift in Sources */,
 				F332E60B1F283F1900841263 /* DetailViewController.swift in Sources */,
 				F332E60D1F283F1900841263 /* OutlineViewController.swift in Sources */,
 			);
