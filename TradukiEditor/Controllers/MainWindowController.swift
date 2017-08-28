@@ -19,12 +19,7 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
     func windowShouldClose(_ sender: Any) -> Bool {
         if let traduki = Traduki.current, !traduki.isSaved {
             
-            let alert = NSAlert()
-            alert.messageText = "You have changed some translations, are you sure to exit without save?"
-            alert.alertStyle = .warning
-            alert.addButton(withTitle: "Save")
-            alert.addButton(withTitle: "Cancel")
-            alert.addButton(withTitle: "Discard")
+            let alert = saveAlert()
             switch alert.runModal() {
             case NSAlertFirstButtonReturn:
                 traduki.save()
@@ -38,6 +33,16 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
             }
         }
         return true
+    }
+    
+    func saveAlert() -> NSAlert {
+        let alert = NSAlert()
+        alert.messageText = "You have changed some translations, are you sure to exit without save?"
+        alert.alertStyle = .warning
+        alert.addButton(withTitle: "Save")
+        alert.addButton(withTitle: "Cancel")
+        alert.addButton(withTitle: "Discard")
+        return alert
     }
 
 }

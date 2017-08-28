@@ -30,7 +30,6 @@ class OutlineViewController: NSViewController, NSOutlineViewDataSource, NSOutlin
         
         searchField.focusRingType = .none
         
-        
     }
     
     override func viewWillAppear() {
