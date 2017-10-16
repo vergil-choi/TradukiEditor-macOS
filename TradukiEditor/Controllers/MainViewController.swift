@@ -33,7 +33,7 @@ class MainViewController: NSSplitViewController {
     }
     
     func openDocument(_ sender: Any) {
-        if let traduki = Traduki.current, !traduki.isSaved {
+        if let traduki = MainProcessor.current, !traduki.isSaved {
             let alert = savingAlert()
             switch alert.runModal() {
             case NSAlertFirstButtonReturn:
@@ -50,14 +50,14 @@ class MainViewController: NSSplitViewController {
     }
     
     func saveDocument(_ sender: Any) {
-        if let traduki = Traduki.current {
+        if let traduki = MainProcessor.current {
             traduki.save()
         }
     }
     
     func reload(_ sender: Any) {
         
-        if let traduki = Traduki.current, !traduki.isSaved {
+        if let traduki = MainProcessor.current, !traduki.isSaved {
             let alert = reloadingAlert()
             switch alert.runModal() {
             case NSAlertFirstButtonReturn:
@@ -72,7 +72,7 @@ class MainViewController: NSSplitViewController {
     
     func reloadData() {
         if let dir = self.workdir {
-            let traduki = Traduki.init(dir)
+            let traduki = MainProcessor.init(dir)
             for item in self.splitViewItems {
                 if let controller = item.viewController as? OutlineViewController  {
                     controller.keys = [traduki.rootKey]

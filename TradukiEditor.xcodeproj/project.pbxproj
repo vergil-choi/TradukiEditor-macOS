@@ -14,9 +14,30 @@
 		F332E60B1F283F1900841263 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F332E6081F283F1900841263 /* DetailViewController.swift */; };
 		F332E60C1F283F1900841263 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F332E6091F283F1900841263 /* MainViewController.swift */; };
 		F332E60D1F283F1900841263 /* OutlineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F332E60A1F283F1900841263 /* OutlineViewController.swift */; };
-		F332E60F1F283F6400841263 /* Traduki.swift in Sources */ = {isa = PBXBuildFile; fileRef = F332E60E1F283F6400841263 /* Traduki.swift */; };
+		F332E60F1F283F6400841263 /* MainProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F332E60E1F283F6400841263 /* MainProcessor.swift */; };
+		F33F1ED91F8F51D1000EF200 /* KeyNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33F1ED81F8F51D1000EF200 /* KeyNode.swift */; };
+		F38518341F7CC85700955AC6 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38518331F7CC85700955AC6 /* main.swift */; };
+		F38518381F7CC86D00955AC6 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38518211F7A5CED00955AC6 /* Protocols.swift */; };
+		F38518391F7CC86D00955AC6 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38518251F7A5F0700955AC6 /* Configuration.swift */; };
+		F385183A1F7CC86D00955AC6 /* Translation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38518231F7A5E8B00955AC6 /* Translation.swift */; };
+		F385183B1F7CC86D00955AC6 /* SwiftParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38518271F7A5F3A00955AC6 /* SwiftParser.swift */; };
+		F385183C1F7CC86D00955AC6 /* JSONWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38518291F7A5F5300955AC6 /* JSONWriter.swift */; };
+		F385183D1F7CC86D00955AC6 /* JSONReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F385182B1F7A5F6500955AC6 /* JSONReader.swift */; };
 		F386ABB01F3019CD007B7FCB /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F386ABAF1F3019CC007B7FCB /* MainWindowController.swift */; };
+		F3B0B1761F8DF14E00A89FFD /* Traduki.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B0B1751F8DF14E00A89FFD /* Traduki.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F385182F1F7CC85700955AC6 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		F332E5EA1F274DA800841263 /* TradukiEditor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TradukiEditor.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -28,12 +49,30 @@
 		F332E6081F283F1900841263 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		F332E6091F283F1900841263 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		F332E60A1F283F1900841263 /* OutlineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutlineViewController.swift; sourceTree = "<group>"; };
-		F332E60E1F283F6400841263 /* Traduki.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Traduki.swift; sourceTree = "<group>"; };
+		F332E60E1F283F6400841263 /* MainProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainProcessor.swift; sourceTree = "<group>"; };
+		F33F1ED81F8F51D1000EF200 /* KeyNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyNode.swift; sourceTree = "<group>"; };
+		F38518211F7A5CED00955AC6 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		F38518231F7A5E8B00955AC6 /* Translation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translation.swift; sourceTree = "<group>"; };
+		F38518251F7A5F0700955AC6 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		F38518271F7A5F3A00955AC6 /* SwiftParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftParser.swift; sourceTree = "<group>"; };
+		F38518291F7A5F5300955AC6 /* JSONWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONWriter.swift; sourceTree = "<group>"; };
+		F385182B1F7A5F6500955AC6 /* JSONReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONReader.swift; sourceTree = "<group>"; };
+		F38518311F7CC85700955AC6 /* Traduki */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Traduki; sourceTree = BUILT_PRODUCTS_DIR; };
+		F38518331F7CC85700955AC6 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		F386ABAF1F3019CC007B7FCB /* MainWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
+		F3B0B1751F8DF14E00A89FFD /* Traduki.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Traduki.swift; sourceTree = "<group>"; };
+		F3D6E0B31F94873300842A8B /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		F332E5E71F274DA800841263 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F385182E1F7CC85700955AC6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -47,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				F332E5EC1F274DA800841263 /* TradukiEditor */,
+				F38518321F7CC85700955AC6 /* Traduki */,
 				F332E5EB1F274DA800841263 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -55,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				F332E5EA1F274DA800841263 /* TradukiEditor.app */,
+				F38518311F7CC85700955AC6 /* Traduki */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -76,7 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				F332E6051F283F0100841263 /* Dotkey.swift */,
-				F332E60E1F283F6400841263 /* Traduki.swift */,
+				F332E60E1F283F6400841263 /* MainProcessor.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -90,6 +131,23 @@
 				F332E6081F283F1900841263 /* DetailViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		F38518321F7CC85700955AC6 /* Traduki */ = {
+			isa = PBXGroup;
+			children = (
+				F38518331F7CC85700955AC6 /* main.swift */,
+				F3B0B1751F8DF14E00A89FFD /* Traduki.swift */,
+				F38518211F7A5CED00955AC6 /* Protocols.swift */,
+				F38518251F7A5F0700955AC6 /* Configuration.swift */,
+				F38518231F7A5E8B00955AC6 /* Translation.swift */,
+				F33F1ED81F8F51D1000EF200 /* KeyNode.swift */,
+				F38518271F7A5F3A00955AC6 /* SwiftParser.swift */,
+				F38518291F7A5F5300955AC6 /* JSONWriter.swift */,
+				F385182B1F7A5F6500955AC6 /* JSONReader.swift */,
+				F3D6E0B31F94873300842A8B /* Package.swift */,
+			);
+			path = Traduki;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -112,19 +170,40 @@
 			productReference = F332E5EA1F274DA800841263 /* TradukiEditor.app */;
 			productType = "com.apple.product-type.application";
 		};
+		F38518301F7CC85700955AC6 /* Traduki */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F38518351F7CC85700955AC6 /* Build configuration list for PBXNativeTarget "Traduki" */;
+			buildPhases = (
+				F385182D1F7CC85700955AC6 /* Sources */,
+				F385182E1F7CC85700955AC6 /* Frameworks */,
+				F385182F1F7CC85700955AC6 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Traduki;
+			productName = Traduki;
+			productReference = F38518311F7CC85700955AC6 /* Traduki */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		F332E5E21F274DA800841263 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastSwiftUpdateCheck = 0900;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Vergil Choi";
 				TargetAttributes = {
 					F332E5E91F274DA800841263 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = FW5RP64939;
+						ProvisioningStyle = Automatic;
+					};
+					F38518301F7CC85700955AC6 = {
+						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -143,6 +222,7 @@
 			projectRoot = "";
 			targets = (
 				F332E5E91F274DA800841263 /* TradukiEditor */,
+				F38518301F7CC85700955AC6 /* Traduki */,
 			);
 		};
 /* End PBXProject section */
@@ -167,10 +247,26 @@
 				F332E60C1F283F1900841263 /* MainViewController.swift in Sources */,
 				F386ABB01F3019CD007B7FCB /* MainWindowController.swift in Sources */,
 				F332E5EE1F274DA800841263 /* AppDelegate.swift in Sources */,
-				F332E60F1F283F6400841263 /* Traduki.swift in Sources */,
+				F332E60F1F283F6400841263 /* MainProcessor.swift in Sources */,
 				F332E6061F283F0100841263 /* Dotkey.swift in Sources */,
 				F332E60B1F283F1900841263 /* DetailViewController.swift in Sources */,
 				F332E60D1F283F1900841263 /* OutlineViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F385182D1F7CC85700955AC6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F38518381F7CC86D00955AC6 /* Protocols.swift in Sources */,
+				F33F1ED91F8F51D1000EF200 /* KeyNode.swift in Sources */,
+				F38518391F7CC86D00955AC6 /* Configuration.swift in Sources */,
+				F385183A1F7CC86D00955AC6 /* Translation.swift in Sources */,
+				F385183B1F7CC86D00955AC6 /* SwiftParser.swift in Sources */,
+				F3B0B1761F8DF14E00A89FFD /* Traduki.swift in Sources */,
+				F385183C1F7CC86D00955AC6 /* JSONWriter.swift in Sources */,
+				F385183D1F7CC86D00955AC6 /* JSONReader.swift in Sources */,
+				F38518341F7CC85700955AC6 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,7 +294,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -206,7 +304,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -248,7 +350,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -256,7 +360,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -308,6 +416,44 @@
 			};
 			name = Release;
 		};
+		F38518361F7CC85700955AC6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		F38518371F7CC85700955AC6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -325,6 +471,15 @@
 			buildConfigurations = (
 				F332E5FA1F274DA800841263 /* Debug */,
 				F332E5FB1F274DA800841263 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F38518351F7CC85700955AC6 /* Build configuration list for PBXNativeTarget "Traduki" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F38518361F7CC85700955AC6 /* Debug */,
+				F38518371F7CC85700955AC6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

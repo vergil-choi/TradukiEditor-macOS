@@ -45,11 +45,11 @@ class DetailViewController: NSViewController, NSTextViewDelegate {
     
     func loadLanguages() {
         langButton.removeAllItems()
-        langButton.addItems(withTitles: Traduki.current!.config.languages)
+        langButton.addItems(withTitles: MainProcessor.current!.config.languages)
         langButton.selectItem(at: 0)
         reloadButton.isEnabled = true
         saveButton.isEnabled = true
-        if let first = Traduki.current!.config.languages.first {
+        if let first = MainProcessor.current!.config.languages.first {
             firstLangLabel.stringValue = first
         }
     }
@@ -74,7 +74,7 @@ class DetailViewController: NSViewController, NSTextViewDelegate {
             occurencesTextField.stringValue = occurencesString
             
             // Set first language translation
-            if let lang = Traduki.current!.config.languages.first, let trans = k.translations[lang] {
+            if let lang = MainProcessor.current!.config.languages.first, let trans = k.translations[lang] {
                 firstTransLabel.stringValue = trans
             }
             
@@ -126,7 +126,7 @@ class DetailViewController: NSViewController, NSTextViewDelegate {
     }
     
     func textDidChange(_ notification: Notification) {
-        if let k = key, let selected = langButton.selectedItem, let traduki = Traduki.current {
+        if let k = key, let selected = langButton.selectedItem, let traduki = MainProcessor.current {
             k.translations[selected.title] = translationTextView.string
             traduki.setTrans(by: k.fullname, for: selected.title, text: translationTextView.string!)
         }

@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class Traduki: NSObject {
+class MainProcessor: NSObject {
     
     struct Config {
         var flat = false
@@ -44,7 +44,7 @@ class Traduki: NSObject {
         return root
     }()
     
-    static var current: Traduki?
+    static var current: MainProcessor?
     
     init(_ workdir: URL) {
         self.workdir = workdir
@@ -68,7 +68,7 @@ class Traduki: NSObject {
             }
         }
         
-        Traduki.current = self
+        MainProcessor.current = self
         
         NotificationCenter.default.post(Notification.init(name: Notification.Name(rawValue: "traduki.loaded")))
     }
@@ -152,7 +152,8 @@ class Traduki: NSObject {
                 newDict[keys.first!] = value
             }
         } else {
-            newDict[keys.first!] = setDictionary(dict: dict[keys.first!] as! [String: Any], value: value, by: Array(keys[1..<keys.count]))
+            let extractedExpr = setDictionary(dict: dict[keys.first!] as! [String: Any], value: value, by: Array(keys[1..<keys.count]))
+            newDict[keys.first!] = extractedExpr
         }
         
 //        print("--------- OUTPUT ---------")

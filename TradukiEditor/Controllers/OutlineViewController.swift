@@ -99,7 +99,7 @@ class OutlineViewController: NSViewController, NSOutlineViewDataSource, NSOutlin
     }
     
     @IBAction func searchChanged(_ sender: NSSearchField) {
-        if let traduki = Traduki.current {
+        if let traduki = MainProcessor.current {
             if sender.stringValue.lengthOfBytes(using: .utf8) > 0 {
                 switch searchTypeMenu.indexOfSelectedItem {
                 case 0:

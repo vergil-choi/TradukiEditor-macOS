@@ -3,7 +3,7 @@
 //  TradukiEditor
 //
 //  Created by Vergil Choi on 2017/8/1.
-//  Copyright © 2017年 Vergil Choi. All rights reserved.
+//  Copyright © 2017 Vergil Choi. All rights reserved.
 //
 
 import Cocoa
@@ -17,7 +17,7 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
     }
     
     func windowShouldClose(_ sender: Any) -> Bool {
-        if let traduki = Traduki.current, !traduki.isSaved {
+        if let traduki = MainProcessor.current, !traduki.isSaved {
             
             let alert = saveAlert()
             switch alert.runModal() {
