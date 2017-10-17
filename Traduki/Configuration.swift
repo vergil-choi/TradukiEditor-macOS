@@ -25,7 +25,9 @@ class Configuration {
         case database   = "database"
     }
     
+    
     static var global = Configuration()
+    
     
     // Work path
     var workPath: String? {
@@ -38,81 +40,68 @@ class Configuration {
         }
     }
     
+    
     // TODO: Excluded directories and files
     var excludedMasks = [".*", "DS_Store"]
     
     
-    
     // TODO: Supported types of file and which is need to be read
-    var supportedFileTypes = [SupportedFileType.swift]
+    var supportedFileTypes = [SupportedFileType.swift.rawValue]
+    
     
     // TODO: Custom map between language and extension of file
-    var fileTypeMap: [SupportedFileType: [String]] = [
-        .swift  : ["swift"],
-        .objc   : [".m", ".mm"],
-        .python : [".py"],
-        .js     : [".js"],
-        .php    : [".php"]
+    var fileTypeMap: [String: [String]] = [
+        SupportedFileType.swift.rawValue  : ["swift"],
+//        SupportedFileType.objc.rawValue   : [".m", ".mm"],
+//        SupportedFileType.python.rawValue : [".py"],
+//        SupportedFileType.js.rawValue     : [".js"],
+//        SupportedFileType.php.rawValue    : [".php"]
     ]
-    
     
     
     // Save position, default is under the work directory
     var dataPath: String?
+
     
     // TODO: Save to file(s) or Database
     var savingMethod = SavingMethod.singleFile
-    
     
     
     // Supported languages
     var languages = ["en_US", "zh_CN"]
     
     
-    // Save to work path
-    func save() {
+    // Attempt to save to work path
+    func save() throws {
         guard workPath != nil, dataPath != nil else {
             return
         }
         
-        let json: [String: Encodable] = [
+        let json = JSON([
             "dataPath"            : dataPath!,
             "excluded_masks"      : excludedMasks,
-            "supported_file_types": supportedFileTypes,
+//            "supported_file_types": supportedFileTypes,
             "file_type_map"       : fileTypeMap,
             "saving_method"       : savingMethod.rawValue,
             "languages"           : languages
-        ]
+        ])
         
-        do {
-            let encoder = JSONEncoder()
-            let data = try encoder.encode(json)
-            try data.write(to: URL(fileURLWithPath: workPath! + ".traduki"))
-        } catch let e {
-            print("Saving configuration failed. (\(e))")
-        }
+        try json.rawData().write(to: URL(fileURLWithPath: workPath! + ".traduki"))
     }
     
     // Attempt to load config from work path
-    func load() {
+    func load() throws {
         guard workPath != nil else {
             return
         }
+
+        let json = try JSON(data: Data(contentsOf: URL(fileURLWithPath: workPath! + ".traduki")))
         
-        do {
-            let decoder = JSONDecoder()
-            let data = try Data(contentsOf: URL(fileURLWithPath: workPath! + ".traduki"))
-            let json = try decoder.decode([String: Encodable].self, from: data)
-            
-            dataPath           = json["data_path"]            as? String
-            excludedMasks      = json["excluded_masks"]       as! [String]
-            supportedFileTypes = json["supported_file_types"] as! [SupportedFileType]
-            fileTypeMap        = json["file_type_map"]        as! [SupportedFileType: [String]]
-            savingMethod       = json["saving_method"]        as! Configuration.SavingMethod
-            languages          = json["languages"]            as! [String]
-            
-        } catch let e {
-            print("Loading configuration failed. (\(e))")
-        }
+        dataPath           = json["data_path"].stringValue
+        excludedMasks      = json["excluded_masks"].arrayValue.map { $0.stringValue }
+//        supportedFileTypes = json["supported_file_types"].arrayValue.map { $0.stringValue }
+        fileTypeMap        = json["file_type_map"].dictionaryValue.mapValues { $0.arrayValue.map {$0.stringValue} }
+        savingMethod       = SavingMethod(rawValue: json["saving_method"].stringValue)!
+        languages          = json["languages"].arrayValue.map { $0.stringValue }
     }
 }

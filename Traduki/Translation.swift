@@ -19,6 +19,7 @@ class Translation: CustomStringConvertible {
     
     let key: String
     var meta = Meta(occurences: [], placeholders: [])
+    
     var content: [String: [String]] = [:]
     
     

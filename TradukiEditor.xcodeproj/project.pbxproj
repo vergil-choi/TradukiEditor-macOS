@@ -25,6 +25,8 @@
 		F385183D1F7CC86D00955AC6 /* JSONReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F385182B1F7A5F6500955AC6 /* JSONReader.swift */; };
 		F386ABB01F3019CD007B7FCB /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F386ABAF1F3019CC007B7FCB /* MainWindowController.swift */; };
 		F3B0B1761F8DF14E00A89FFD /* Traduki.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B0B1751F8DF14E00A89FFD /* Traduki.swift */; };
+		F3D6E2FB1F94ABF700842A8B /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D6E2FA1F94AB6900842A8B /* SwiftyJSON.swift */; };
+		F3D6E2FC1F94BC7600842A8B /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D6E2FA1F94AB6900842A8B /* SwiftyJSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -62,6 +64,7 @@
 		F386ABAF1F3019CC007B7FCB /* MainWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
 		F3B0B1751F8DF14E00A89FFD /* Traduki.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Traduki.swift; sourceTree = "<group>"; };
 		F3D6E0B31F94873300842A8B /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		F3D6E2FA1F94AB6900842A8B /* SwiftyJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = Carthage/Checkouts/SwiftyJSON/Source/SwiftyJSON.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +139,7 @@
 		F38518321F7CC85700955AC6 /* Traduki */ = {
 			isa = PBXGroup;
 			children = (
+				F3D6E2F91F94AB4500842A8B /* Dependencies */,
 				F38518331F7CC85700955AC6 /* main.swift */,
 				F3B0B1751F8DF14E00A89FFD /* Traduki.swift */,
 				F38518211F7A5CED00955AC6 /* Protocols.swift */,
@@ -148,6 +152,14 @@
 				F3D6E0B31F94873300842A8B /* Package.swift */,
 			);
 			path = Traduki;
+			sourceTree = "<group>";
+		};
+		F3D6E2F91F94AB4500842A8B /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				F3D6E2FA1F94AB6900842A8B /* SwiftyJSON.swift */,
+			);
+			path = Dependencies;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -247,6 +259,7 @@
 				F332E60C1F283F1900841263 /* MainViewController.swift in Sources */,
 				F386ABB01F3019CD007B7FCB /* MainWindowController.swift in Sources */,
 				F332E5EE1F274DA800841263 /* AppDelegate.swift in Sources */,
+				F3D6E2FC1F94BC7600842A8B /* SwiftyJSON.swift in Sources */,
 				F332E60F1F283F6400841263 /* MainProcessor.swift in Sources */,
 				F332E6061F283F0100841263 /* Dotkey.swift in Sources */,
 				F332E60B1F283F1900841263 /* DetailViewController.swift in Sources */,
@@ -261,6 +274,7 @@
 				F38518381F7CC86D00955AC6 /* Protocols.swift in Sources */,
 				F33F1ED91F8F51D1000EF200 /* KeyNode.swift in Sources */,
 				F38518391F7CC86D00955AC6 /* Configuration.swift in Sources */,
+				F3D6E2FB1F94ABF700842A8B /* SwiftyJSON.swift in Sources */,
 				F385183A1F7CC86D00955AC6 /* Translation.swift in Sources */,
 				F385183B1F7CC86D00955AC6 /* SwiftParser.swift in Sources */,
 				F3B0B1761F8DF14E00A89FFD /* Traduki.swift in Sources */,
