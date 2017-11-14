@@ -8,10 +8,16 @@
 
 import Foundation
 
+
+//
+// NOTE:
+//
+// - Add more information, eg. How many children (whole hierarchy) the current node have
+//
 class KeyNode {
     
     // Default there's only one root in global, but still can make others for different purposes
-    // eg. comparing tree, snapshot tree, etc.
+    // eg. comparing tree, snapshot tree, multiple files tree, etc.
     static var root = KeyNode(with: "root")
     
     

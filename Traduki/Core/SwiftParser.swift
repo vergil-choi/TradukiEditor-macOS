@@ -18,9 +18,11 @@
 // - Function name follows spaces
 //
 //
-// And some ideas
+// And some TODOS:
 //
 // - Get the postion (row, column)
+// - Redesign GrammarContext
+// - Abstract Parser, make it reusable, flexible
 //
 
 
@@ -29,7 +31,7 @@ import Foundation
 let PREFIXES = ["", "(", "\"", "[", "", "", ""]
 let SUFFIXES = ["", ")", "\"", "]", ",", ":", ""]
 
-class GrammarContext {
+class SyntaxContext {
     enum Kind: Int {
         case document = 0
         case function = 1
@@ -44,8 +46,8 @@ class GrammarContext {
     var startIndex: String.Index
     var endIndex: String.Index
     var content: String = ""
-    var nodes: [GrammarContext] = []
-    var parent: GrammarContext?
+    var nodes: [SyntaxContext] = []
+    var parent: SyntaxContext?
     
     var isEmpty: Bool {
         get {
@@ -111,7 +113,7 @@ class SwiftParser: Parser {
     
     var target: String!
     
-    func parseFile(_ file: String) -> GrammarContext {
+    func parseFile(_ file: String) -> SyntaxContext {
         
         loadContent(file)
         let document = parseDocument()
@@ -126,8 +128,8 @@ class SwiftParser: Parser {
         }
     }
     
-    private func parseDocument() -> GrammarContext {
-        let document = GrammarContext.init(type: .document, startIndex: target.startIndex)
+    private func parseDocument() -> SyntaxContext {
+        let document = SyntaxContext.init(type: .document, startIndex: target.startIndex)
         
         // Search for '__'
         var start = target.startIndex
@@ -143,7 +145,7 @@ class SwiftParser: Parser {
         return document
     }
     
-    private func parseFunctionCall(context: GrammarContext, startIndex: String.Index) -> String.Index {
+    private func parseFunctionCall(context: SyntaxContext, startIndex: String.Index) -> String.Index {
         var currentIndex = target.index(after: startIndex)
         let function = createContext(withType: .function, startIndex: startIndex, inContext: context)
         var currentContext = function
@@ -171,7 +173,7 @@ class SwiftParser: Parser {
         return currentIndex
     }
     
-    private func parseString(context: GrammarContext, startIndex: String.Index) -> String.Index {
+    private func parseString(context: SyntaxContext, startIndex: String.Index) -> String.Index {
         var currentIndex = target.index(after: startIndex)
         let string = createContext(withType: .string, startIndex: startIndex, inContext: context)
         
@@ -189,7 +191,7 @@ class SwiftParser: Parser {
         return currentIndex
     }
     
-    private func parseDictionary(context: GrammarContext, startIndex: String.Index) -> String.Index {
+    private func parseDictionary(context: SyntaxContext, startIndex: String.Index) -> String.Index {
         var currentIndex = target.index(after: startIndex)
         let dictionary = createContext(withType: .dictionary, startIndex: startIndex, inContext: context)
         var currentContext = dictionary
@@ -216,7 +218,7 @@ class SwiftParser: Parser {
         return currentIndex
     }
     
-    private func parseArgument(context: GrammarContext, startIndex: String.Index) -> String.Index {
+    private func parseArgument(context: SyntaxContext, startIndex: String.Index) -> String.Index {
         var currentIndex = startIndex
         let argument = createContext(withType: .argument, startIndex: startIndex, inContext: context)
         
@@ -250,7 +252,7 @@ class SwiftParser: Parser {
         return currentIndex
     }
     
-    private func parseKey(context: GrammarContext, startIndex: String.Index) -> String.Index {
+    private func parseKey(context: SyntaxContext, startIndex: String.Index) -> String.Index {
         var currentIndex = startIndex
         let key = createContext(withType: .key, startIndex: startIndex, inContext: context)
         
@@ -277,7 +279,7 @@ class SwiftParser: Parser {
         return currentIndex
     }
     
-    private func parseValue(context: GrammarContext, startIndex: String.Index) -> String.Index {
+    private func parseValue(context: SyntaxContext, startIndex: String.Index) -> String.Index {
         var currentIndex = startIndex
         let value = createContext(withType: .value, startIndex: startIndex, inContext: context)
         
@@ -313,14 +315,14 @@ class SwiftParser: Parser {
         return String(target[target.index(before: startIndex)..<startIndex])
     }
     
-    private func createContext(withType type: GrammarContext.Kind, startIndex: String.Index, inContext context: GrammarContext) -> GrammarContext {
-        let newContext = GrammarContext.init(type: type, startIndex: startIndex)
+    private func createContext(withType type: SyntaxContext.Kind, startIndex: String.Index, inContext context: SyntaxContext) -> SyntaxContext {
+        let newContext = SyntaxContext.init(type: type, startIndex: startIndex)
         newContext.parent = context
         context.nodes.append(newContext)
         return newContext
     }
     
-    private func jumpOut(ofContext context: GrammarContext, endIndex: String.Index) -> GrammarContext {
+    private func jumpOut(ofContext context: SyntaxContext, endIndex: String.Index) -> SyntaxContext {
         context.endIndex = endIndex
         return context.parent!
     }

@@ -11,7 +11,7 @@
 
 
 protocol Parser {
-    func parseFile(_ file: String) -> GrammarContext
+    func parseFile(_ file: String) -> SyntaxContext
     
 }
 

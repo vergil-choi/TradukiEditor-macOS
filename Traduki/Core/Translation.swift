@@ -23,9 +23,9 @@ class Translation: CustomStringConvertible {
     var content: [String: [String]] = [:]
     
     
-    class func translations(with documentContext: GrammarContext) -> [Translation] {
+    class func translations(with documentContext: SyntaxContext) -> [Translation] {
         
-        if documentContext.type != GrammarContext.Kind.document {
+        if documentContext.type != SyntaxContext.Kind.document {
             return []
         }
         
@@ -36,7 +36,7 @@ class Translation: CustomStringConvertible {
             var placeholders: [String] = []
             
             // First argument is the key
-            if let firstArgument = function.nodes.first, let string = firstArgument.nodes.first, string.type == GrammarContext.Kind.string {
+            if let firstArgument = function.nodes.first, let string = firstArgument.nodes.first, string.type == SyntaxContext.Kind.string {
                 key = string.content
             } else {
                 // Current function's first argument is empty or not a string, skip
@@ -44,9 +44,9 @@ class Translation: CustomStringConvertible {
             }
             
             // Second argument is the dictionary of placeholders
-            if function.nodes.count >= 2, let dict = function.nodes[1].nodes.first, dict.type == GrammarContext.Kind.dictionary {
+            if function.nodes.count >= 2, let dict = function.nodes[1].nodes.first, dict.type == SyntaxContext.Kind.dictionary {
                 for key in dict.nodes {
-                    if key.type == GrammarContext.Kind.key, let string = key.nodes.first, string.type == GrammarContext.Kind.string {
+                    if key.type == SyntaxContext.Kind.key, let string = key.nodes.first, string.type == SyntaxContext.Kind.string {
                         placeholders.append(string.content)
                     }
                 }

@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  TradukiEditor
 //
-//  Created by Vergil Choi on 2017/7/25.
+//  Created by Vergil Choi on 2017/11/7.
 //  Copyright © 2017 Vergil Choi. All rights reserved.
 //
 
@@ -16,10 +16,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
         
-    }
-    
-    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
-        return true
+        print(ProjectManager.shared.projectElement().xmlString(options: .nodePrettyPrint))
+        
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

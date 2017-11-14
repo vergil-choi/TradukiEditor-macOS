@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import SwiftyJSON
 
-class Configuration {
-    
+class Configuration: NSObject {
+
     enum SupportedFileType: String {
         case java   = "java"
         case js     = "js"
@@ -19,18 +20,30 @@ class Configuration {
         case swift  = "swift"
     }
     
-    enum SavingMethod: String {
-        case singleFile = "single_file"
-        case files      = "files"
-        case database   = "database"
+    enum KeyScope: String {
+        case global = "global"
+        case file   = "file"
+    }
+    
+    struct Database {
+        enum Driver: String {
+            case MySQL = "mysql"
+        }
+        
+        var driver = Driver.MySQL
+        var host = ""
+        var port = ""
+        var database = ""
+        var username = ""
+        var password = ""
     }
     
     
     static var global = Configuration()
-    
+    static let properties = ["workPath", "dataPath", "keyScope", "excludedMasks", "languages", "supportedFileTypes", "fileTypeMap"]
     
     // Work path
-    var workPath: String? {
+    @objc var workPath: String? {
         didSet {
             if workPath != nil {
                 dataPath = workPath! + "Languages/"
@@ -42,15 +55,15 @@ class Configuration {
     
     
     // TODO: Excluded directories and files
-    var excludedMasks = [".*", "DS_Store"]
+    @objc var excludedMasks = [".*", "DS_Store"]
     
     
     // TODO: Supported types of file and which is need to be read
-    var supportedFileTypes = [SupportedFileType.swift.rawValue]
+    @objc var supportedFileTypes = [SupportedFileType.swift.rawValue]
     
     
     // TODO: Custom map between language and extension of file
-    var fileTypeMap: [String: [String]] = [
+    @objc var fileTypeMap: [String: [String]] = [
         SupportedFileType.swift.rawValue  : ["swift"],
 //        SupportedFileType.objc.rawValue   : [".m", ".mm"],
 //        SupportedFileType.python.rawValue : [".py"],
@@ -60,15 +73,15 @@ class Configuration {
     
     
     // Save position, default is under the work directory
-    var dataPath: String?
-
+    @objc var dataPath: String?
     
-    // TODO: Save to file(s) or Database
-    var savingMethod = SavingMethod.singleFile
-    
+    @objc var keyScope = KeyScope.global.rawValue
     
     // Supported languages
-    var languages = ["en_US", "zh_CN"]
+    @objc var languages = ["en_US", "zh_CN"]
+    
+    // Database
+    var database = Database()
     
     
     // Attempt to save to work path
@@ -82,11 +95,11 @@ class Configuration {
             "excluded_masks"      : excludedMasks,
 //            "supported_file_types": supportedFileTypes,
             "file_type_map"       : fileTypeMap,
-            "saving_method"       : savingMethod.rawValue,
+            "key_scope"           : keyScope,
             "languages"           : languages
         ])
         
-        try json.rawData().write(to: URL(fileURLWithPath: workPath! + ".traduki"))
+        try json.rawData().write(to: URL(fileURLWithPath: workPath! + ".traduki/config"))
     }
     
     // Attempt to load config from work path
@@ -95,13 +108,13 @@ class Configuration {
             return
         }
 
-        let json = try JSON(data: Data(contentsOf: URL(fileURLWithPath: workPath! + ".traduki")))
+        let json = try JSON(data: Data(contentsOf: URL(fileURLWithPath: workPath! + ".traduki/config")))
         
         dataPath           = json["data_path"].stringValue
         excludedMasks      = json["excluded_masks"].arrayValue.map { $0.stringValue }
 //        supportedFileTypes = json["supported_file_types"].arrayValue.map { $0.stringValue }
         fileTypeMap        = json["file_type_map"].dictionaryValue.mapValues { $0.arrayValue.map {$0.stringValue} }
-        savingMethod       = SavingMethod(rawValue: json["saving_method"].stringValue)!
+        keyScope           = json["key_scope"].stringValue
         languages          = json["languages"].arrayValue.map { $0.stringValue }
     }
 }
