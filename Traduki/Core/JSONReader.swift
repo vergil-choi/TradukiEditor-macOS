@@ -54,10 +54,10 @@ class JSONReader: FileReader {
         return [:]
     }
     
-    private func getMetadata() throws -> JSONWriter.EncodableData {
+    private func getMetadata() throws -> EncodableData {
         let data = try Data(contentsOf: URL(fileURLWithPath: dataPath + "metadata.json"))
         let decoder = JSONDecoder()
-        return try decoder.decode(JSONWriter.EncodableData.self, from: data)
+        return try decoder.decode(EncodableData.self, from: data)
     }
     
     private func getContent(with language: String) throws -> [String: [String]] {

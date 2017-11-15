@@ -9,6 +9,7 @@
 
 // TODO: Maybe need ParserGate, WriterGate and ReaderGate to hide the detail from high level call
 
+typealias EncodableData = [String: [String: [String]]]
 
 protocol Parser {
     func parseFile(_ file: String) -> SyntaxContext

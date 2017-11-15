@@ -6,9 +6,9 @@ abstract_target 'Project' do
     pod 'RxCocoa',    '~> 4.0'
     pod 'SwiftyJSON'
 
-    target 'Traduki' do
-    end
-
     target 'TradukiEditor' do 
+    end
+    
+    target 'TradukiEditorTests' do
     end
 end

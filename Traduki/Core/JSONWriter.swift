@@ -11,8 +11,6 @@ import Foundation
 
 class JSONWriter: FileWriter {
     
-    typealias EncodableData = [String: [String: [String]]]
-    
     let dataPath: String
     
     class func save() {

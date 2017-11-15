@@ -117,4 +117,49 @@ class Configuration: NSObject {
         keyScope           = json["key_scope"].stringValue
         languages          = json["languages"].arrayValue.map { $0.stringValue }
     }
+    
+    func xmlElement() -> XMLElement {
+        let config = Configuration.global
+        let element = XMLElement(name: "Configuration")
+        for key in Configuration.properties {
+            if let value = config.value(forKey: key) {
+                if let string = value as? String {
+                    element.addChild(XMLNode.element(from: string, forKey: key))
+                }
+                else if let array = value as? [String] {
+                    element.addChild(XMLNode.element(from: array, forKey: key))
+                }
+                else if let dict = value as? [String: [String]] {
+                    element.addChild(XMLNode.element(from: dict, forKey: key))
+                }
+            }
+        }
+        return element
+    }
+    
+    func load(from element: XMLElement) {
+        
+        do {
+            for p in Configuration.properties {
+                let props = try element.nodes(forXPath: p)
+                if let prop = props.first {
+                    switch prop.type {
+                    case "String":
+                        print(prop.string)
+                    case "Array" where prop.children != nil:
+                        print(prop.array)
+                    case "Dictionary" where prop.children != nil:
+                        print(prop.dict)
+                    default:
+                        break
+                    }
+                }
+            }
+        } catch let e {
+            print("XPath failed.", e)
+        }
+        
+        print(element.xmlString(options: .nodePrettyPrint))
+        
+    }
 }

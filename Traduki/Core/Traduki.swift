@@ -35,8 +35,6 @@ class Traduki {
             }
         }
         
-        JSONWriter.save()
-        
     }
     
     

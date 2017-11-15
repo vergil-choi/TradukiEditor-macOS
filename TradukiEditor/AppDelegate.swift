@@ -16,14 +16,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
         
-        print(ProjectManager.shared.projectElement().xmlString(options: .nodePrettyPrint))
-        
+        openWelcomeWindow(nil)
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
 
-
+    @IBAction func openWelcomeWindow(_ sender: Any?) {
+        let welcome = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: Bundle.main).instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "welcome")) as! NSWindowController
+        welcome.showWindow(nil)
+        welcome.window?.makeKey()
+    }
 }
 
