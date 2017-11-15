@@ -1,5 +1,5 @@
 TradukiEditor.xcodeproj/project.xcworkspace/xcuserdata
 TradukiEditor.xcodeproj/xcuserdata
-.build
-Carthage
-Cartfile.resolved
+TradukiEditor.xcworkspace/xcuserdata
+Pods
+Podfile.lock
