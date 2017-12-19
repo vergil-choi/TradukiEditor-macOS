@@ -28,6 +28,7 @@ class WelcomeViewController: NSViewController {
         versionLabel.stringValue = "Version \(version) (\(build))"
     }
     
+   
     @IBAction func newProjectButtonClicked(_ sender: Any) {
         view.window?.close()
         DocumentController.shared.newDocument(sender)
@@ -108,17 +109,19 @@ extension WelcomeViewController: NSTableViewDataSource, NSTableViewDelegate {
 extension WelcomeViewController {
 
     @IBAction func tableViewDoubleClicked(_ sender: NSTableView) {
-        
-        self.view.window?.close()
-        
+        if sender.selectedRow >= 0 {
+            self.view.window?.close()
+            let urls = DocumentController.shared.recentDocumentURLs
+            DocumentController.shared.simplyOpenFile(withURL: urls[sender.selectedRow])
+        }
     }
     
     @IBAction func closeButtonClicked(_ sender: Any) {
         self.view.window?.close()
     }
     
-    @IBAction func openButtonClicked(_ sender: Any) {
-        self.view.window?.close()
+    @IBAction func showWelcomeCheckButtonClicked(_ sender: NSButton) {
+        UISettings.showWelcomeWindow = sender.state == .on
     }
     
     override func mouseEntered(with event: NSEvent) {

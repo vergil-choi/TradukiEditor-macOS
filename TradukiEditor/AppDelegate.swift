@@ -21,7 +21,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
         
-        openWelcomeWindow(nil)
+        if UISettings.showWelcomeWindow {
+            openWelcomeWindow(nil)
+        }
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

@@ -28,6 +28,12 @@ class Traduki {
     func loadProjectDocument(fileURL: URL) {
         self.fileURL = fileURL
         projectReader.loadProject(fileURL: fileURL)
+        
+        // Check last select language
+        guard let last = UISettings.lastLanguage, config.languages.contains(last) else {
+            UISettings.lastLanguage = config.languages.first
+            return
+        }
     }
     
     func generateProjectDocumentData() throws -> Data {

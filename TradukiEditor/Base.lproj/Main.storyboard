@@ -795,6 +795,9 @@
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="showWelcomeCheckButtonClicked:" target="eOc-vx-lRm" id="ZIs-SP-wqV"/>
+                                </connections>
                             </button>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yGe-1Y-e1O">
                                 <rect key="frame" x="129" y="284" width="150" height="150"/>
@@ -1123,7 +1126,7 @@
                                                     </button>
                                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nIl-jr-oLK">
                                                         <rect key="frame" x="28" y="0.0" width="20" height="30"/>
-                                                        <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="flat-mode-button" imagePosition="overlaps" alignment="center" alternateImage="flat-mode-button-selected" imageScaling="proportionallyDown" inset="2" id="kJB-SG-gBX">
+                                                        <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="flat-mode-button" imagePosition="overlaps" alignment="center" alternateImage="flat-mode-button-selected" imageScaling="proportionallyDown" inset="2" id="kJB-SG-gBX">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
@@ -1275,24 +1278,25 @@
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
-                                        <color key="value" red="0.72156862749999995" green="0.72156862749999995" blue="0.72156862749999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="value" red="0.63529411764705879" green="0.63529411764705879" blue="0.63529411764705879" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </customView>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="0on-Mw-JyD">
                                 <rect key="frame" x="0.0" y="887" width="908" height="30"/>
                                 <subviews>
-                                    <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TWh-20-H9u">
+                                    <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" verticalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="TWh-20-H9u">
                                         <rect key="frame" x="0.0" y="0.0" width="908" height="30"/>
                                         <clipView key="contentView" id="kHs-fe-9Es">
                                             <rect key="frame" x="0.0" y="0.0" width="908" height="30"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <view fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vZr-bB-pwd">
-                                                    <rect key="frame" x="0.0" y="0.0" width="893" height="15"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="893" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 </view>
                                             </subviews>
+                                            <color key="backgroundColor" red="0.72941176470588232" green="0.72941176470588232" blue="0.72941176470588232" alpha="1" colorSpace="calibratedRGB"/>
                                         </clipView>
                                         <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="BPe-VY-8Di">
                                             <rect key="frame" x="-100" y="-100" width="908" height="16"/>
@@ -1330,29 +1334,8 @@
                             </customView>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="67W-ZN-4q9">
                                 <rect key="frame" x="0.0" y="0.0" width="908" height="30"/>
-                                <subviews>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DOq-F7-fjn">
-                                        <rect key="frame" x="842" y="0.0" width="51" height="30"/>
-                                        <buttonCell key="cell" type="bevel" title="en_US" bezelStyle="rounded" image="arrow-black-down" imagePosition="right" alignment="left" imageScaling="proportionallyDown" inset="2" id="wu5-1U-qhY">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
-                                        </buttonCell>
-                                        <connections>
-                                            <action selector="languageButtonClicked:" target="ggs-0w-Rfw" id="13C-Wj-z6Z"/>
-                                        </connections>
-                                    </button>
-                                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zmY-gE-LmP">
-                                        <rect key="frame" x="818" y="7" width="16" height="16"/>
-                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="language-switch-icon" id="992-11-MBe"/>
-                                    </imageView>
-                                </subviews>
                                 <constraints>
-                                    <constraint firstItem="zmY-gE-LmP" firstAttribute="centerY" secondItem="67W-ZN-4q9" secondAttribute="centerY" id="8WM-0j-Kyq"/>
-                                    <constraint firstAttribute="bottom" secondItem="DOq-F7-fjn" secondAttribute="bottom" id="ETY-fS-0DX"/>
-                                    <constraint firstAttribute="trailing" secondItem="DOq-F7-fjn" secondAttribute="trailing" constant="15" id="MRK-Sa-6s6"/>
                                     <constraint firstAttribute="height" constant="30" id="c67-6k-t7Y"/>
-                                    <constraint firstItem="DOq-F7-fjn" firstAttribute="top" secondItem="67W-ZN-4q9" secondAttribute="top" id="ff3-lz-uJx"/>
-                                    <constraint firstItem="DOq-F7-fjn" firstAttribute="leading" secondItem="zmY-gE-LmP" secondAttribute="trailing" constant="8" id="ucK-kk-rsQ"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
@@ -1478,7 +1461,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="languageButton" destination="DOq-F7-fjn" id="rQ9-Ax-rQt"/>
                         <outlet property="languagesView" destination="TWh-20-H9u" id="hXw-jc-eTr"/>
                         <outlet property="tableView" destination="Dgj-BD-p3N" id="9o9-Rx-xqV"/>
                     </connections>
@@ -1529,7 +1511,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrow-black-down" width="9" height="6"/>
         <image name="clean-button" width="29" height="31"/>
         <image name="database-button" width="24" height="27"/>
         <image name="disclosure-button-normal" width="6" height="8"/>
@@ -1542,7 +1523,6 @@
         <image name="hierarchical-mode-button" width="16" height="15"/>
         <image name="hierarchical-mode-button-selected" width="16" height="15"/>
         <image name="import-button" width="27" height="30"/>
-        <image name="language-switch-icon" width="16" height="16"/>
         <image name="main-app-icon" width="935" height="951"/>
         <image name="scan-button" width="28" height="30"/>
         <image name="welcome-close-button" width="20" height="20"/>

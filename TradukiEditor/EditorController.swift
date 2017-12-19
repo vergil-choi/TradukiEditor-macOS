@@ -13,8 +13,8 @@ import RxCocoa
 class EditorController: NSViewController {
     
     @IBOutlet weak var tableView: NSTableView!
-    @IBOutlet weak var languageButton: NSButton!
     @IBOutlet weak var languagesView: NSScrollView!
+    var languageButtonGroup = LanguageButton.Group()
     
     var nodes: [KeyNode]? {
         didSet {
@@ -25,8 +25,6 @@ class EditorController: NSViewController {
     var language: String = "en_US" {
         didSet {
             tableView.reloadData()
-            
-            languageButton.title = language + "  "
         }
     }
     
@@ -44,6 +42,7 @@ class EditorController: NSViewController {
             if let lang = document?.traduki.config.languages.first {
                 self.language = lang
             }
+            self.addTabButtons()
         }
         
     }
@@ -53,39 +52,67 @@ class EditorController: NSViewController {
         tableView.reloadData()
     }
     
-    @IBAction func languageButtonClicked(_ sender: NSButton) {
-        let menu = NSMenu(title: "Languages")
-        for lang in document.traduki.config.languages {
-            let item = menu.addItem(withTitle: lang, action: #selector(languageSelected(_:)), keyEquivalent: "")
-            item.target = self
-            item.representedObject = lang
-            if lang == language {
-                item.state = .on
-            }
-        }
-        menu.popUp(positioning: nil, at: sender.frame.origin, in: view)
-    }
-    
-    @objc func languageSelected(_ sender: NSMenuItem) {
-        if let lang = sender.representedObject as? String {
-            language = lang
-        }
-    }
-    
-    
     deinit {
         nodeSelection?.dispose()
     }
 }
 
+// MARK: UI Setups
 extension EditorController {
     
-    func addLanguageTabButtons() {
+    func addTabButtons() {
+        languagesView.documentView = NSView()
         
+        if let langs = document?.traduki.config.languages {
+            for lang in langs {
+                addTabButton(with: lang)
+            }
+        }
+        languagesView.documentView?.frame.size.width = CGFloat(languageButtonGroup.buttons.count) * (120 + 1)
+        languagesView.documentView?.frame.size.height = languagesView.frame.size.height
     }
     
+    func addTabButton(with lang: String) {
+        let button = LanguageButton(withTitle: lang)
+        button.bezelStyle = .regularSquare
+        button.isBordered = false
+        button.frame.size.height = languagesView.frame.height
+        button.frame.size.width = 120
+        button.frame.origin.x = CGFloat(languageButtonGroup.buttons.count) * (120 + 1)
+        button.target = self
+        button.action = #selector(languageButtonClicked(_:))
+        languageButtonGroup.add(button)
+        languagesView.documentView?.addSubview(button)
+        if let last = UISettings.lastLanguage, last == lang {
+            button.selected = true
+        }
+
+        addSeperator(at: CGFloat(languageButtonGroup.buttons.count) * 120 + CGFloat(languageButtonGroup.buttons.count - 1) * 1)
+    }
+    
+    func addSeperator(at x: CGFloat) {
+        let seperator = NSView()
+        seperator.backgroundColor = #colorLiteral(red:0.63, green:0.63, blue:0.63, alpha:1.00)
+        seperator.frame.size.width = 1
+        seperator.frame.size.height = languagesView.frame.height
+        seperator.frame.origin.x = x
+        languagesView.documentView?.addSubview(seperator)
+    }
 }
 
+// MARK: - Controls Behavior
+extension EditorController {
+    
+    @objc func languageButtonClicked(_ sender: LanguageButton) {
+        sender.selected = true
+        if let lang = sender.language {
+            language = lang
+            UISettings.lastLanguage = lang
+        }
+    }
+}
+
+// MARK: - Table View
 extension EditorController: NSTableViewDelegate, NSTableViewDataSource {
  
     struct CellHeightCorrection {
@@ -174,6 +201,7 @@ extension EditorController: NSTableViewDelegate, NSTableViewDataSource {
     
 }
 
+// MARK: - Cell
 class EditorCellView: NSTableCellView, NSTextFieldDelegate {
     
     @IBOutlet weak var baseView: NSView!
@@ -214,6 +242,85 @@ class EditorCellView: NSTableCellView, NSTextFieldDelegate {
         }
         return false
     }
+}
+
+// MARK: - Tab-like Language Button
+class LanguageButton: NSButton {
+    
+    class Group {
+        var buttons: [LanguageButton] {
+            return _buttons
+        }
+        private var _buttons: [LanguageButton] = []
+        var selectedButton: LanguageButton? {
+            for button in buttons {
+                if button.selected {
+                    return button
+                }
+            }
+            return buttons.first
+        }
+        func add(_ button: LanguageButton) {
+            _buttons.append(button)
+            button.group = self
+        }
+        func clearSelected() {
+            for button in _buttons {
+                button.state = .off
+            }
+        }
+    }
+    
+    var language: String?
+    var normalTitle: NSAttributedString?
+    var highlightTitle: NSAttributedString?
+    
+    weak var group: Group?
+    var selected: Bool {
+        get {
+            return state == .on
+        }
+        set {
+            group?.clearSelected()
+            state = newValue ? .on : .off
+        }
+    }
+    
+    init(withTitle title: String) {
+        super.init(frame: .zero)
+        language = title
+        let paragraph = NSMutableParagraphStyle()
+        paragraph.alignment = .center
+        normalTitle = NSAttributedString(string: title,
+                                         attributes: [
+                                            .foregroundColor: #colorLiteral(red: 0.35, green: 0.35, blue: 0.35, alpha: 1),
+                                            .paragraphStyle: paragraph
+            ])
+        highlightTitle = NSAttributedString(string: title,
+                                            attributes: [
+                                                .foregroundColor: NSColor.black,
+                                                .paragraphStyle: paragraph
+            ])
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
+    override var wantsUpdateLayer: Bool {
+        return true
+    }
+    
+    override func updateLayer() {
+        if cell!.isHighlighted || selected {
+            backgroundColor = #colorLiteral(red: 0.93, green: 0.93, blue: 0.93, alpha: 1)
+            attributedTitle = highlightTitle!
+        } else {
+            backgroundColor = #colorLiteral(red: 0.73, green: 0.73, blue: 0.73, alpha: 1)
+            attributedTitle = normalTitle!
+        }
+    }
+
 }
 
 
