@@ -38,20 +38,11 @@ class Configuration: NSObject {
         var password = ""
     }
     
-    
-    static var global = Configuration()
-    static let properties = ["workPath", "dataPath", "keyScope", "excludedMasks", "languages", "supportedFileTypes", "fileTypeMap"]
+    static let properties = ["lastWorkPath", "relativeDataPath", "keyScope", "excludedMasks", "languages", "fileTypeMap"]
     
     // Work path
-    @objc var workPath: String? {
-        didSet {
-            if workPath != nil {
-                dataPath = workPath! + "Languages/"
-            } else {
-                dataPath = workPath
-            }
-        }
-    }
+    @objc var workPath: String?
+    @objc var lastWorkPath: String?
     
     
     // TODO: Excluded directories and files
@@ -73,7 +64,19 @@ class Configuration: NSObject {
     
     
     // Save position, default is under the work directory
-    @objc var dataPath: String?
+    @objc var relativeDataPath: String? {
+        didSet {
+            if relativeDataPath == nil {
+                relativeDataPath = "Languages/"
+            }
+        }
+    }
+    var dataPath: String? {
+        if workPath != nil && relativeDataPath != nil {
+            return workPath! + relativeDataPath!
+        }
+        return nil
+    }
     
     @objc var keyScope = KeyScope.global.rawValue
     
@@ -83,46 +86,10 @@ class Configuration: NSObject {
     // Database
     var database = Database()
     
-    
-    // Attempt to save to work path
-    func save() throws {
-        guard workPath != nil, dataPath != nil else {
-            return
-        }
-        
-        let json = JSON([
-            "dataPath"            : dataPath!,
-            "excluded_masks"      : excludedMasks,
-//            "supported_file_types": supportedFileTypes,
-            "file_type_map"       : fileTypeMap,
-            "key_scope"           : keyScope,
-            "languages"           : languages
-        ])
-        
-        try json.rawData().write(to: URL(fileURLWithPath: workPath! + ".traduki/config"))
-    }
-    
-    // Attempt to load config from work path
-    func load() throws {
-        guard workPath != nil else {
-            return
-        }
-
-        let json = try JSON(data: Data(contentsOf: URL(fileURLWithPath: workPath! + ".traduki/config")))
-        
-        dataPath           = json["data_path"].stringValue
-        excludedMasks      = json["excluded_masks"].arrayValue.map { $0.stringValue }
-//        supportedFileTypes = json["supported_file_types"].arrayValue.map { $0.stringValue }
-        fileTypeMap        = json["file_type_map"].dictionaryValue.mapValues { $0.arrayValue.map {$0.stringValue} }
-        keyScope           = json["key_scope"].stringValue
-        languages          = json["languages"].arrayValue.map { $0.stringValue }
-    }
-    
     func xmlElement() -> XMLElement {
-        let config = Configuration.global
         let element = XMLElement(name: "Configuration")
         for key in Configuration.properties {
-            if let value = config.value(forKey: key) {
+            if let value = self.value(forKey: key) {
                 if let string = value as? String {
                     element.addChild(XMLNode.element(from: string, forKey: key))
                 }
@@ -137,29 +104,29 @@ class Configuration: NSObject {
         return element
     }
     
-    func load(from element: XMLElement) {
+    func load(from element: XMLNode) {
         
         do {
             for p in Configuration.properties {
-                let props = try element.nodes(forXPath: p)
+                let props = try element.nodes(forXPath: "*[@id='\(p)']")
+                var value: Any?
                 if let prop = props.first {
                     switch prop.type {
                     case "String":
-                        print(prop.string)
+                        value = prop.string
                     case "Array" where prop.children != nil:
-                        print(prop.array)
+                        value = prop.array
                     case "Dictionary" where prop.children != nil:
-                        print(prop.dict)
+                        value = prop.dict
                     default:
                         break
                     }
                 }
+                setValue(value, forKey: p)
             }
         } catch let e {
             print("XPath failed.", e)
         }
-        
-        print(element.xmlString(options: .nodePrettyPrint))
         
     }
 }

@@ -9,18 +9,22 @@
 import Foundation
 
 class ProjectManager {
-    static let shared = ProjectManager()
-    private init() {}
+
+    var traduki: Traduki
+    
+    init(with traduki: Traduki) {
+        self.traduki = traduki
+    }
     
     public func save() {
         
         let element = XMLElement(name: "Project")
         
         element.addAttribute(XMLNode.attribute(withName: "version", stringValue: Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String) as! XMLNode)
-        element.addChild(Configuration.global.xmlElement())
+        element.addChild(traduki.config.xmlElement())
         do {
-            Traduki.shared.refresh()
-            let (metadata, data) = try XMLWriter.createXMLElement()
+            try traduki.refresh()
+            let (metadata, data) = try traduki.projectWriter.xmlElement()
             element.addChild(metadata)
             element.addChild(data)
         } catch let e {
@@ -31,7 +35,7 @@ class ProjectManager {
         document.name = "traduki"
         document.characterEncoding = "utf-8"
         do {
-            try document.xmlData(options: .nodePrettyPrint).write(to: URL(fileURLWithPath: Configuration.global.workPath! + "traduki.tdk"))
+            try document.xmlData(options: .nodePrettyPrint).write(to: URL(fileURLWithPath: traduki.config.workPath! + "traduki.tdk"))
         } catch let e {
             print("Create project file failed in \(#function) .", e)
         }

@@ -3,7 +3,7 @@
 //  TradukiEditor
 //
 //  Created by Vergil Choi on 2017/11/14.
-//  Copyright © 2017年 Vergil Choi. All rights reserved.
+//  Copyright © 2017 Vergil Choi. All rights reserved.
 //
 
 import Foundation

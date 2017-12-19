@@ -11,50 +11,30 @@ import Foundation
 
 class JSONWriter: FileWriter {
     
-    let dataPath: String
+    weak var traduki: Traduki!
     
-    class func save() {
-        
-        guard let dataPath = Configuration.global.dataPath else {
+    init(with traduki: Traduki) {
+        self.traduki = traduki
+    }
+    
+    func save(_ node: KeyNode) {
+        guard traduki.config.dataPath != nil else {
             return
         }
-        
-        JSONWriter(with: dataPath).save(KeyNode.root)
-
-    }
-    
-    init(with dataPath: String) {
-        self.dataPath = dataPath
-    }
-    
-    private func save(_ node: KeyNode) {
-        var metadata: EncodableData = [:]
         var languages: EncodableData = [:]
         node.traversal { (node: KeyNode) in
             if let translation = node.translation {
-                metadata[translation.key] = ["ocurrences": translation.meta.occurences, "placeholders": translation.meta.placeholders]
-                for language in Configuration.global.languages {
+                for language in traduki.config.languages {
                     if languages[language] == nil {
                         languages[language] = [:]
                     }
-                    if let content = translation.content[language] {
-                        languages[language]![translation.key] = content
+                    if let content = translation.content[language], content.count > 0 {
+                        languages[language]![translation.key] = content.filter { $0.count > 0 }
                     }
                 }
             }
         }
-        save(metadata: metadata)
         save(languages: languages)
-    }
-    
-    private func save(metadata: EncodableData) {
-        do {
-            let encoder = JSONEncoder()
-            let data = try encoder.encode(metadata)
-            try data.write(to: URL(fileURLWithPath: dataPath + "metadata.json"))
-        } catch let e {
-            print("Metadata encode or write failed. (\(e))")
-        }
     }
     
     private func save(languages: EncodableData) {
@@ -62,7 +42,9 @@ class JSONWriter: FileWriter {
             let encoder = JSONEncoder.init()
             for (key, value) in languages {
                 let data = try encoder.encode(value)
-                try data.write(to: URL(fileURLWithPath: dataPath + key + ".json"))
+                let fileURL = URL(fileURLWithPath: traduki.config.dataPath! + key + ".json")
+                try FileManager.default.createDirectory(at: fileURL.deletingLastPathComponent(), withIntermediateDirectories: true, attributes: nil)
+                try data.write(to: fileURL)
             }
         } catch let e {
             print("Languages encode or write failed. (\(e))")

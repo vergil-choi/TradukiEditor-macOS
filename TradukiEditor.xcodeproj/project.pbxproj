@@ -8,10 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		8A715C833D3D261793D8DB81 /* Pods_Project_TradukiEditor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD4EC071893131DC9918AB1E /* Pods_Project_TradukiEditor.framework */; };
-		D34975A500B167CADC702229 /* Pods_Project_TradukiEditorTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 510D42F1BED25E834828E03D /* Pods_Project_TradukiEditorTests.framework */; };
 		F34AC8F01FBAAB01009CE7E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38D071F1FB18B680061B097 /* AppDelegate.swift */; };
 		F34AC8F61FBAB2D3009CE7E8 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38D073D1FB18BF80061B097 /* Configuration.swift */; };
-		F34AC8F71FBAB2D3009CE7E8 /* JSONReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38D073E1FB18BF80061B097 /* JSONReader.swift */; };
 		F34AC8F81FBAB2D3009CE7E8 /* JSONWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38D073F1FB18BF80061B097 /* JSONWriter.swift */; };
 		F34AC8F91FBAB2D3009CE7E8 /* KeyNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38D07401FB18BF80061B097 /* KeyNode.swift */; };
 		F34AC8FA1FBAB2D3009CE7E8 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38D07411FB18BF80061B097 /* Protocols.swift */; };
@@ -20,41 +18,26 @@
 		F34AC8FD1FBAB2D3009CE7E8 /* Translation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38D07441FB18BF80061B097 /* Translation.swift */; };
 		F34AC8FE1FBAB2D3009CE7E8 /* ProjectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38D07461FB18BF80061B097 /* ProjectManager.swift */; };
 		F34AC9001FBACFC3009CE7E8 /* XMLWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34AC8FF1FBACFC3009CE7E8 /* XMLWriter.swift */; };
-		F34AC9081FBAD171009CE7E8 /* TradukiEditorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34AC9071FBAD171009CE7E8 /* TradukiEditorTests.swift */; };
-		F34AC90F1FBAD18A009CE7E8 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38D073D1FB18BF80061B097 /* Configuration.swift */; };
-		F34AC9101FBAD18A009CE7E8 /* JSONReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38D073E1FB18BF80061B097 /* JSONReader.swift */; };
-		F34AC9111FBAD18A009CE7E8 /* JSONWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38D073F1FB18BF80061B097 /* JSONWriter.swift */; };
-		F34AC9121FBAD18A009CE7E8 /* XMLWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34AC8FF1FBACFC3009CE7E8 /* XMLWriter.swift */; };
-		F34AC9131FBAD18A009CE7E8 /* KeyNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38D07401FB18BF80061B097 /* KeyNode.swift */; };
-		F34AC9141FBAD18A009CE7E8 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38D07411FB18BF80061B097 /* Protocols.swift */; };
-		F34AC9151FBAD18A009CE7E8 /* SwiftParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38D07421FB18BF80061B097 /* SwiftParser.swift */; };
-		F34AC9161FBAD18A009CE7E8 /* Traduki.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38D07431FB18BF80061B097 /* Traduki.swift */; };
-		F34AC9171FBAD18A009CE7E8 /* Translation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38D07441FB18BF80061B097 /* Translation.swift */; };
-		F34AC9181FBAD18A009CE7E8 /* ProjectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38D07461FB18BF80061B097 /* ProjectManager.swift */; };
 		F34AC91A1FBADED1009CE7E8 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34AC9191FBADED1009CE7E8 /* Extensions.swift */; };
-		F34AC91B1FBADED1009CE7E8 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34AC9191FBADED1009CE7E8 /* Extensions.swift */; };
-		F38D07221FB18B680061B097 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38D07211FB18B680061B097 /* ViewController.swift */; };
+		F350C8F01FCFF31C003E6B94 /* OutlineViewDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F350C8EF1FCFF31C003E6B94 /* OutlineViewDelegateProxy.swift */; };
+		F350C8F41FD10BAF003E6B94 /* DocumentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F350C8F31FD10BAF003E6B94 /* DocumentController.swift */; };
+		F350C8F91FD1408D003E6B94 /* Defines.swift in Sources */ = {isa = PBXBuildFile; fileRef = F350C8F81FD1408D003E6B94 /* Defines.swift */; };
+		F35E11C61FBEC2C600AC82F7 /* SplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E11C51FBEC2C600AC82F7 /* SplitView.swift */; };
+		F35E11C81FC7FD9A00AC82F7 /* EditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E11C71FC7FD9A00AC82F7 /* EditorController.swift */; };
+		F38B9B641FD7DA5B0048D090 /* XMLReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38B9B631FD7DA5B0048D090 /* XMLReader.swift */; };
+		F38B9B661FD8F6800048D090 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38B9B651FD8F6800048D090 /* WindowController.swift */; };
 		F38D07241FB18B680061B097 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38D07231FB18B680061B097 /* Document.swift */; };
 		F38D07261FB18B680061B097 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F38D07251FB18B680061B097 /* Assets.xcassets */; };
 		F38D07291FB18B680061B097 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F38D07271FB18B680061B097 /* Main.storyboard */; };
 		F3A18D931FBBF054003BCE4F /* WelcomeOpenButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A18D921FBBF054003BCE4F /* WelcomeOpenButton.swift */; };
-		F3A18D971FBC2193003BCE4F /* ProjectCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A18D961FBC2193003BCE4F /* ProjectCellView.swift */; };
+		F3AD61261FC8302600677D9C /* InspectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AD61251FC8302600677D9C /* InspectorViewController.swift */; };
 		F3E831301FBAFEBC00EF533C /* WelcomeWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E8312F1FBAFEBC00EF533C /* WelcomeWindow.swift */; };
 		F3E831321FBB054900EF533C /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E831311FBB054900EF533C /* WelcomeViewController.swift */; };
 		F3E831361FBBDFC500EF533C /* WelcomeCloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E831351FBBDFC500EF533C /* WelcomeCloseButton.swift */; };
 		F3E831381FBBE39E00EF533C /* AppExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E831371FBBE39E00EF533C /* AppExtensions.swift */; };
-		F3E831391FBBE3A200EF533C /* AppExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E831371FBBE39E00EF533C /* AppExtensions.swift */; };
+		F3F7F6591FBC58A8004AA913 /* OutlineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F7F6571FBC58A8004AA913 /* OutlineController.swift */; };
+		F3F8D6131FE7D66C0013B9DE /* traduki_public.pem in Resources */ = {isa = PBXBuildFile; fileRef = F3F8D6121FE7D66C0013B9DE /* traduki_public.pem */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		F34AC90A1FBAD171009CE7E8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F38D07141FB18B680061B097 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F38D071B1FB18B680061B097;
-			remoteInfo = TradukiEditor;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		F34AC8F51FBAB260009CE7E8 /* Embed Frameworks */ = {
@@ -83,20 +66,22 @@
 		BF8BE93B7CA6F564F93A338E /* Pods-Project-TradukiEditorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project-TradukiEditorTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Project-TradukiEditorTests/Pods-Project-TradukiEditorTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DD4EC071893131DC9918AB1E /* Pods_Project_TradukiEditor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project_TradukiEditor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F34AC8FF1FBACFC3009CE7E8 /* XMLWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMLWriter.swift; sourceTree = "<group>"; };
-		F34AC9051FBAD171009CE7E8 /* TradukiEditorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TradukiEditorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F34AC9071FBAD171009CE7E8 /* TradukiEditorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradukiEditorTests.swift; sourceTree = "<group>"; };
-		F34AC9091FBAD171009CE7E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F34AC9191FBADED1009CE7E8 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		F38D071C1FB18B680061B097 /* TradukiEditor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TradukiEditor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F350C8EF1FCFF31C003E6B94 /* OutlineViewDelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutlineViewDelegateProxy.swift; sourceTree = "<group>"; };
+		F350C8F31FD10BAF003E6B94 /* DocumentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentController.swift; sourceTree = "<group>"; };
+		F350C8F81FD1408D003E6B94 /* Defines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defines.swift; sourceTree = "<group>"; };
+		F35E11C51FBEC2C600AC82F7 /* SplitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitView.swift; sourceTree = "<group>"; };
+		F35E11C71FC7FD9A00AC82F7 /* EditorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorController.swift; sourceTree = "<group>"; };
+		F38B9B631FD7DA5B0048D090 /* XMLReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMLReader.swift; sourceTree = "<group>"; };
+		F38B9B651FD8F6800048D090 /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
+		F38D071C1FB18B680061B097 /* Traduki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Traduki.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F38D071F1FB18B680061B097 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F38D07211FB18B680061B097 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F38D07231FB18B680061B097 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
 		F38D07251FB18B680061B097 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F38D07281FB18B680061B097 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F38D072A1FB18B680061B097 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F38D072B1FB18B680061B097 /* TradukiEditor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TradukiEditor.entitlements; sourceTree = "<group>"; };
 		F38D073D1FB18BF80061B097 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
-		F38D073E1FB18BF80061B097 /* JSONReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONReader.swift; sourceTree = "<group>"; };
 		F38D073F1FB18BF80061B097 /* JSONWriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONWriter.swift; sourceTree = "<group>"; };
 		F38D07401FB18BF80061B097 /* KeyNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyNode.swift; sourceTree = "<group>"; };
 		F38D07411FB18BF80061B097 /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
@@ -105,22 +90,16 @@
 		F38D07441FB18BF80061B097 /* Translation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Translation.swift; sourceTree = "<group>"; };
 		F38D07461FB18BF80061B097 /* ProjectManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectManager.swift; sourceTree = "<group>"; };
 		F3A18D921FBBF054003BCE4F /* WelcomeOpenButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeOpenButton.swift; sourceTree = "<group>"; };
-		F3A18D961FBC2193003BCE4F /* ProjectCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCellView.swift; sourceTree = "<group>"; };
+		F3AD61251FC8302600677D9C /* InspectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectorViewController.swift; sourceTree = "<group>"; };
 		F3E8312F1FBAFEBC00EF533C /* WelcomeWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeWindow.swift; sourceTree = "<group>"; };
 		F3E831311FBB054900EF533C /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		F3E831351FBBDFC500EF533C /* WelcomeCloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeCloseButton.swift; sourceTree = "<group>"; };
 		F3E831371FBBE39E00EF533C /* AppExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppExtensions.swift; sourceTree = "<group>"; };
+		F3F7F6571FBC58A8004AA913 /* OutlineController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutlineController.swift; sourceTree = "<group>"; };
+		F3F8D6121FE7D66C0013B9DE /* traduki_public.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = traduki_public.pem; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		F34AC9021FBAD171009CE7E8 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D34975A500B167CADC702229 /* Pods_Project_TradukiEditorTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		F38D07191FB18B680061B097 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -158,13 +137,12 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		F34AC9061FBAD171009CE7E8 /* TradukiEditorTests */ = {
+		F350C8F51FD12DFD003E6B94 /* DelegateProxies */ = {
 			isa = PBXGroup;
 			children = (
-				F34AC9071FBAD171009CE7E8 /* TradukiEditorTests.swift */,
-				F34AC9091FBAD171009CE7E8 /* Info.plist */,
+				F350C8EF1FCFF31C003E6B94 /* OutlineViewDelegateProxy.swift */,
 			);
-			path = TradukiEditorTests;
+			path = DelegateProxies;
 			sourceTree = "<group>";
 		};
 		F38D07131FB18B680061B097 = {
@@ -172,7 +150,6 @@
 			children = (
 				F38D071E1FB18B680061B097 /* TradukiEditor */,
 				F3989D851FBA9F8A0083D5DB /* Traduki */,
-				F34AC9061FBAD171009CE7E8 /* TradukiEditorTests */,
 				F38D071D1FB18B680061B097 /* Products */,
 				0AE490675680CA79296A6F46 /* Pods */,
 				0EB23DA39B19CDA1A357B8DB /* Frameworks */,
@@ -182,8 +159,7 @@
 		F38D071D1FB18B680061B097 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F38D071C1FB18B680061B097 /* TradukiEditor.app */,
-				F34AC9051FBAD171009CE7E8 /* TradukiEditorTests.xctest */,
+				F38D071C1FB18B680061B097 /* Traduki.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -191,15 +167,20 @@
 		F38D071E1FB18B680061B097 /* TradukiEditor */ = {
 			isa = PBXGroup;
 			children = (
+				F350C8F51FD12DFD003E6B94 /* DelegateProxies */,
 				F3A18D941FBC2123003BCE4F /* Welcome */,
+				F3F7F6541FBC5739004AA913 /* Supporting Files */,
+				F350C8F81FD1408D003E6B94 /* Defines.swift */,
 				F38D071F1FB18B680061B097 /* AppDelegate.swift */,
 				F3E831371FBBE39E00EF533C /* AppExtensions.swift */,
-				F38D07211FB18B680061B097 /* ViewController.swift */,
 				F38D07231FB18B680061B097 /* Document.swift */,
-				F38D07251FB18B680061B097 /* Assets.xcassets */,
+				F350C8F31FD10BAF003E6B94 /* DocumentController.swift */,
+				F3F7F6571FBC58A8004AA913 /* OutlineController.swift */,
+				F35E11C71FC7FD9A00AC82F7 /* EditorController.swift */,
+				F3AD61251FC8302600677D9C /* InspectorViewController.swift */,
+				F38B9B651FD8F6800048D090 /* WindowController.swift */,
+				F35E11C51FBEC2C600AC82F7 /* SplitView.swift */,
 				F38D07271FB18B680061B097 /* Main.storyboard */,
-				F38D072A1FB18B680061B097 /* Info.plist */,
-				F38D072B1FB18B680061B097 /* TradukiEditor.entitlements */,
 			);
 			path = TradukiEditor;
 			sourceTree = "<group>";
@@ -208,12 +189,12 @@
 			isa = PBXGroup;
 			children = (
 				F34AC9191FBADED1009CE7E8 /* Extensions.swift */,
+				F38D07411FB18BF80061B097 /* Protocols.swift */,
 				F38D073D1FB18BF80061B097 /* Configuration.swift */,
-				F38D073E1FB18BF80061B097 /* JSONReader.swift */,
 				F38D073F1FB18BF80061B097 /* JSONWriter.swift */,
 				F34AC8FF1FBACFC3009CE7E8 /* XMLWriter.swift */,
+				F38B9B631FD7DA5B0048D090 /* XMLReader.swift */,
 				F38D07401FB18BF80061B097 /* KeyNode.swift */,
-				F38D07411FB18BF80061B097 /* Protocols.swift */,
 				F38D07421FB18BF80061B097 /* SwiftParser.swift */,
 				F38D07431FB18BF80061B097 /* Traduki.swift */,
 				F38D07441FB18BF80061B097 /* Translation.swift */,
@@ -253,35 +234,24 @@
 			children = (
 				F3E831351FBBDFC500EF533C /* WelcomeCloseButton.swift */,
 				F3A18D921FBBF054003BCE4F /* WelcomeOpenButton.swift */,
-				F3A18D961FBC2193003BCE4F /* ProjectCellView.swift */,
 			);
 			path = Controls;
+			sourceTree = "<group>";
+		};
+		F3F7F6541FBC5739004AA913 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F3F8D6121FE7D66C0013B9DE /* traduki_public.pem */,
+				F38D07251FB18B680061B097 /* Assets.xcassets */,
+				F38D072A1FB18B680061B097 /* Info.plist */,
+				F38D072B1FB18B680061B097 /* TradukiEditor.entitlements */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F34AC9041FBAD171009CE7E8 /* TradukiEditorTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F34AC90C1FBAD171009CE7E8 /* Build configuration list for PBXNativeTarget "TradukiEditorTests" */;
-			buildPhases = (
-				D81F7218659D116AE260EDA4 /* [CP] Check Pods Manifest.lock */,
-				F34AC9011FBAD171009CE7E8 /* Sources */,
-				F34AC9021FBAD171009CE7E8 /* Frameworks */,
-				F34AC9031FBAD171009CE7E8 /* Resources */,
-				9394F738174A7E1D19AF2B1C /* [CP] Embed Pods Frameworks */,
-				1746BCBD005FBDFA6EFB3B42 /* [CP] Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				F34AC90B1FBAD171009CE7E8 /* PBXTargetDependency */,
-			);
-			name = TradukiEditorTests;
-			productName = TradukiEditorTests;
-			productReference = F34AC9051FBAD171009CE7E8 /* TradukiEditorTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		F38D071B1FB18B680061B097 /* TradukiEditor */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F38D072E1FB18B680061B097 /* Build configuration list for PBXNativeTarget "TradukiEditor" */;
@@ -293,6 +263,7 @@
 				1FB422B9F89BE1688347427B /* [CP] Embed Pods Frameworks */,
 				2478B0EF3BDD6B66C68A9FA2 /* [CP] Copy Pods Resources */,
 				F34AC8F51FBAB260009CE7E8 /* Embed Frameworks */,
+				F3F8D6141FE7DC4D0013B9DE /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -300,7 +271,7 @@
 			);
 			name = TradukiEditor;
 			productName = TradukiEditor;
-			productReference = F38D071C1FB18B680061B097 /* TradukiEditor.app */;
+			productReference = F38D071C1FB18B680061B097 /* Traduki.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -313,14 +284,14 @@
 				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = "Vergil Choi";
 				TargetAttributes = {
-					F34AC9041FBAD171009CE7E8 = {
-						CreatedOnToolsVersion = 9.1;
-						ProvisioningStyle = Automatic;
-						TestTargetID = F38D071B1FB18B680061B097;
-					};
 					F38D071B1FB18B680061B097 = {
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -338,24 +309,17 @@
 			projectRoot = "";
 			targets = (
 				F38D071B1FB18B680061B097 /* TradukiEditor */,
-				F34AC9041FBAD171009CE7E8 /* TradukiEditorTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		F34AC9031FBAD171009CE7E8 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		F38D071A1FB18B680061B097 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				F38D07261FB18B680061B097 /* Assets.xcassets in Resources */,
+				F3F8D6131FE7D66C0013B9DE /* traduki_public.pem in Resources */,
 				F38D07291FB18B680061B097 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -363,21 +327,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1746BCBD005FBDFA6EFB3B42 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Project-TradukiEditorTests/Pods-Project-TradukiEditorTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		1FB422B9F89BE1688347427B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -387,12 +336,16 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Project-TradukiEditor/Pods-Project-TradukiEditor-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${PODS_ROOT}/Sparkle/Sparkle.framework",
+				"${PODS_ROOT}/Sparkle/Sparkle.framework.dSYM",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sparkle.framework",
+				"${DWARF_DSYM_FOLDER_PATH}/Sparkle.framework.dSYM",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -433,105 +386,56 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9394F738174A7E1D19AF2B1C /* [CP] Embed Pods Frameworks */ = {
+		F3F8D6141FE7DC4D0013B9DE /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Project-TradukiEditorTests/Pods-Project-TradukiEditorTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
-				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
-			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Project-TradukiEditorTests/Pods-Project-TradukiEditorTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D81F7218659D116AE260EDA4 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Project-TradukiEditorTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
+			shellScript = "if [ ! -d \"$SRCROOT/$CONFIGURATION/\" ]; then\n    mkdir $SRCROOT/$CONFIGURATION/\nfi\nif [ ! -d \"$SRCROOT/$CONFIGURATION/$PRODUCT_NAME.app\" ]; then\n    rm -rf $SRCROOT/$CONFIGURATION/$PRODUCT_NAME.app\nfi\ncp -rf $TARGET_BUILD_DIR/$PRODUCT_NAME.app $SRCROOT/$CONFIGURATION/\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		F34AC9011FBAD171009CE7E8 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F34AC90F1FBAD18A009CE7E8 /* Configuration.swift in Sources */,
-				F34AC9131FBAD18A009CE7E8 /* KeyNode.swift in Sources */,
-				F34AC9161FBAD18A009CE7E8 /* Traduki.swift in Sources */,
-				F34AC9141FBAD18A009CE7E8 /* Protocols.swift in Sources */,
-				F34AC9101FBAD18A009CE7E8 /* JSONReader.swift in Sources */,
-				F34AC9111FBAD18A009CE7E8 /* JSONWriter.swift in Sources */,
-				F34AC9081FBAD171009CE7E8 /* TradukiEditorTests.swift in Sources */,
-				F34AC91B1FBADED1009CE7E8 /* Extensions.swift in Sources */,
-				F34AC9151FBAD18A009CE7E8 /* SwiftParser.swift in Sources */,
-				F34AC9121FBAD18A009CE7E8 /* XMLWriter.swift in Sources */,
-				F3E831391FBBE3A200EF533C /* AppExtensions.swift in Sources */,
-				F34AC9171FBAD18A009CE7E8 /* Translation.swift in Sources */,
-				F34AC9181FBAD18A009CE7E8 /* ProjectManager.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		F38D07181FB18B680061B097 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				F34AC8FB1FBAB2D3009CE7E8 /* SwiftParser.swift in Sources */,
 				F3E831301FBAFEBC00EF533C /* WelcomeWindow.swift in Sources */,
-				F3A18D971FBC2193003BCE4F /* ProjectCellView.swift in Sources */,
 				F34AC8FE1FBAB2D3009CE7E8 /* ProjectManager.swift in Sources */,
 				F34AC8F01FBAAB01009CE7E8 /* AppDelegate.swift in Sources */,
 				F3E831361FBBDFC500EF533C /* WelcomeCloseButton.swift in Sources */,
+				F35E11C61FBEC2C600AC82F7 /* SplitView.swift in Sources */,
 				F3E831321FBB054900EF533C /* WelcomeViewController.swift in Sources */,
-				F34AC8F71FBAB2D3009CE7E8 /* JSONReader.swift in Sources */,
+				F38B9B641FD7DA5B0048D090 /* XMLReader.swift in Sources */,
+				F350C8F91FD1408D003E6B94 /* Defines.swift in Sources */,
 				F34AC8FD1FBAB2D3009CE7E8 /* Translation.swift in Sources */,
 				F34AC8F91FBAB2D3009CE7E8 /* KeyNode.swift in Sources */,
+				F35E11C81FC7FD9A00AC82F7 /* EditorController.swift in Sources */,
+				F38B9B661FD8F6800048D090 /* WindowController.swift in Sources */,
+				F3F7F6591FBC58A8004AA913 /* OutlineController.swift in Sources */,
 				F3E831381FBBE39E00EF533C /* AppExtensions.swift in Sources */,
-				F38D07221FB18B680061B097 /* ViewController.swift in Sources */,
 				F34AC8F61FBAB2D3009CE7E8 /* Configuration.swift in Sources */,
+				F350C8F41FD10BAF003E6B94 /* DocumentController.swift in Sources */,
 				F34AC8FC1FBAB2D3009CE7E8 /* Traduki.swift in Sources */,
 				F34AC8F81FBAB2D3009CE7E8 /* JSONWriter.swift in Sources */,
 				F38D07241FB18B680061B097 /* Document.swift in Sources */,
 				F34AC9001FBACFC3009CE7E8 /* XMLWriter.swift in Sources */,
 				F3A18D931FBBF054003BCE4F /* WelcomeOpenButton.swift in Sources */,
 				F34AC8FA1FBAB2D3009CE7E8 /* Protocols.swift in Sources */,
+				F3AD61261FC8302600677D9C /* InspectorViewController.swift in Sources */,
 				F34AC91A1FBADED1009CE7E8 /* Extensions.swift in Sources */,
+				F350C8F01FCFF31C003E6B94 /* OutlineViewDelegateProxy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		F34AC90B1FBAD171009CE7E8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F38D071B1FB18B680061B097 /* TradukiEditor */;
-			targetProxy = F34AC90A1FBAD171009CE7E8 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		F38D07271FB18B680061B097 /* Main.storyboard */ = {
@@ -545,46 +449,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		F34AC90D1FBAD171009CE7E8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = BF8BE93B7CA6F564F93A338E /* Pods-Project-TradukiEditorTests.debug.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "Mac Developer";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 7HDAS685HR;
-				INFOPLIST_FILE = TradukiEditorTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				OTHER_CODE_SIGN_FLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.vergilchoi.TradukiEditorTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TradukiEditor.app/Contents/MacOS/TradukiEditor";
-			};
-			name = Debug;
-		};
-		F34AC90E1FBAD171009CE7E8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5391735E3CF4BB59AFEE81EB /* Pods-Project-TradukiEditorTests.release.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "Mac Developer";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 7HDAS685HR;
-				INFOPLIST_FILE = TradukiEditorTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				OTHER_CODE_SIGN_FLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.vergilchoi.TradukiEditorTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TradukiEditor.app/Contents/MacOS/TradukiEditor";
-			};
-			name = Release;
-		};
 		F38D072C1FB18B680061B097 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -697,18 +561,18 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = TradukiEditor/TradukiEditor.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 7HDAS685HR;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = TradukiEditor/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/TradukiEditor/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				OTHER_CODE_SIGN_FLAGS = "--deep";
-				PRODUCT_BUNDLE_IDENTIFIER = com.vergilchoi.TradukiEditor;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vergilchoi.traduki;
+				PRODUCT_NAME = Traduki;
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -719,18 +583,18 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = TradukiEditor/TradukiEditor.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 7HDAS685HR;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = TradukiEditor/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/TradukiEditor/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				OTHER_CODE_SIGN_FLAGS = "--deep";
-				PRODUCT_BUNDLE_IDENTIFIER = com.vergilchoi.TradukiEditor;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vergilchoi.traduki;
+				PRODUCT_NAME = Traduki;
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
@@ -738,15 +602,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F34AC90C1FBAD171009CE7E8 /* Build configuration list for PBXNativeTarget "TradukiEditorTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F34AC90D1FBAD171009CE7E8 /* Debug */,
-				F34AC90E1FBAD171009CE7E8 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		F38D07171FB18B680061B097 /* Build configuration list for PBXProject "TradukiEditor" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

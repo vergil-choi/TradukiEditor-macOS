@@ -14,30 +14,38 @@ import Foundation
 //
 // - Add more information, eg. How many children (whole hierarchy) the current node have
 //
-class KeyNode {
-    
-    // Default there's only one root in global, but still can make others for different purposes
-    // eg. comparing tree, snapshot tree, multiple files tree, etc.
-    static var root = KeyNode(with: "root")
-    
+class KeyNode: NSObject {
     
     var name: String
-    var children: [String: KeyNode] = [:]
+    
+    // Keep ordered
+    var children: [KeyNode] = []
+    
+    // Traversal-oriented
+    private var indexedChildren: [String: KeyNode] = [:]
+    
     var translation: Translation?
     
+    init(with name: String) {
+        self.name = name
+    }
     
     // Create the key node tree, but also merged same keys with translation
-    class func add(_ translation: Translation) -> KeyNode {
+    func add(_ translation: Translation) -> KeyNode {
         let components = translation.key.components(separatedBy: ".")
         
-        var currentNode = KeyNode.root
+        var currentNode = self
         
         for component in components {
-            if let node = currentNode.children[component] {
+            if let node = currentNode.indexedChildren[component] {
                 currentNode = node
             } else {
                 let node = KeyNode(with: component)
-                currentNode.children[component] = node
+                
+                // Ordered insertion
+                currentNode.insert(node)
+                
+                currentNode.indexedChildren[component] = node
                 currentNode = node
             }
         }
@@ -53,21 +61,33 @@ class KeyNode {
         return currentNode
     }
     
-    private init(with name: String) {
-        self.name = name
+    // Insertion sort
+    private func insert(_ node: KeyNode) {
+        guard children.count > 0 else {
+            children.append(node)
+            return
+        }
+        
+        for (index, child) in children.enumerated() {
+            if node.name < child.name {
+                children.insert(node, at: index)
+                return
+            }
+        }
+        children.append(node)
     }
     
-    // root first
+    // Root first
     func traversal(action: (_ node: KeyNode) -> Void) {
         action(self)
-        for (_, child) in children.sorted(by: { $0.value.name < $1.value.name }) {
+        for child in children {
             child.traversal(action: action)
         }
     }
     
     func debugPrint(_ level: Int = 0) {
         print(String(repeating: " ", count: level * 2) + name)
-        for (_, child) in children.sorted(by: { $0.value.name < $1.value.name }) {
+        for child in children {
             child.debugPrint(level + 1)
         }
     }

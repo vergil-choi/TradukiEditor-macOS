@@ -10,8 +10,13 @@ import Cocoa
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
+    
+    var welcome: NSWindowController!
 
-
+    func applicationWillFinishLaunching(_ notification: Notification) {
+        let _ = DocumentController()
+        
+    }
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
@@ -22,9 +27,32 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
-
+    
+    func application(_ sender: NSApplication, openFile filename: String) -> Bool {
+        if let window = welcome?.window, window.isVisible {
+            window.close()
+        }
+        
+        DocumentController.shared.simplyOpenFile(withPath: filename)
+        return true
+    }
+    
+    func application(_ sender: NSApplication, openFiles filenames: [String]) {
+        for filename in filenames {
+            DocumentController.shared.simplyOpenFile(withPath: filename)
+        }
+        
+        if let window = welcome?.window, window.isVisible {
+            window.close()
+        }
+    }
+    
+    func applicationShouldOpenUntitledFile(_ sender: NSApplication) -> Bool {
+        return false
+    }
+    
     @IBAction func openWelcomeWindow(_ sender: Any?) {
-        let welcome = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: Bundle.main).instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "welcome")) as! NSWindowController
+        welcome = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: Bundle.main).instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "welcome")) as! NSWindowController
         welcome.showWindow(nil)
         welcome.window?.makeKey()
     }

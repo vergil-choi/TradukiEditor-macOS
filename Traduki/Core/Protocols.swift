@@ -17,7 +17,7 @@ protocol Parser {
 }
 
 protocol FileWriter {
-    
+   
 }
 
 protocol FileReader {

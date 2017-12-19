@@ -3,7 +3,7 @@
 //  TradukiEditor
 //
 //  Created by Vergil Choi on 2017/11/14.
-//  Copyright © 2017年 Vergil Choi. All rights reserved.
+//  Copyright © 2017 Vergil Choi. All rights reserved.
 //
 
 import Foundation
@@ -15,37 +15,33 @@ class XMLWriter: FileWriter {
         case invalidWorkPath
     }
     
-    let workPath: String
+    weak var traduki: Traduki!
     
-    class func createXMLElement() throws -> (XMLElement, XMLElement) {
-        
-        guard let workPath = Configuration.global.workPath else {
+    init(with traduki: Traduki) {
+        self.traduki = traduki
+    }
+    
+    func xmlElement() throws -> (XMLElement, XMLElement) {
+        guard traduki.config.workPath != nil else {
             throw Expection.invalidWorkPath
         }
         
-        return XMLWriter(with: workPath).xmlElement(node: KeyNode.root)
-    }
-    
-    init(with workPath: String) {
-        self.workPath = workPath
-    }
-    
-    private func xmlElement(node: KeyNode) -> (XMLElement, XMLElement) {
         var metadata: EncodableData = [:]
         var languages: EncodableData = [:]
-        node.traversal { (node: KeyNode) in
+        traduki.root.traversal { (node: KeyNode) in
             if let translation = node.translation {
                 metadata[translation.key] = ["ocurrences": translation.meta.occurences, "placeholders": translation.meta.placeholders]
-                for language in Configuration.global.languages {
+                for language in traduki.config.languages {
                     if languages[language] == nil {
                         languages[language] = [:]
                     }
-                    if let content = translation.content[language] {
-                        languages[language]![translation.key] = content
+                    if let content = translation.content[language], content.count > 0 {
+                        languages[language]![translation.key] = content.filter { $0.count > 0 }
                     }
                 }
             }
         }
+        
         return (xmlElement(metadata: metadata), xmlElement(languages: languages))
     }
     

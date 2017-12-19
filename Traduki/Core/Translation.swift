@@ -63,8 +63,8 @@ class Translation: CustomStringConvertible {
     
     func merge(from translation: Translation) {
         if self.key == translation.key {
-            self.meta.occurences.append(contentsOf: translation.meta.occurences)
-            self.meta.placeholders.append(contentsOf: translation.meta.placeholders)
+            self.meta.occurences.union(translation.meta.occurences)
+            self.meta.placeholders.union(translation.meta.placeholders)
         }
     }
     
@@ -80,5 +80,15 @@ class Translation: CustomStringConvertible {
         get {
             return "\(key): \(content)"
         }
+    }
+}
+
+extension Array where Element: Hashable {
+    mutating func union(_ other: [Element]) {
+        let s = Set<Element>(self)
+        let t = Set<Element>(other)
+        
+        self.removeAll()
+        self.append(contentsOf: Array(s.union(t)))
     }
 }
