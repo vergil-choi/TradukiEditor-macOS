@@ -52,6 +52,7 @@ class Traduki {
         document.characterEncoding = "utf-8"
 
         return document.xmlData(options: .nodePrettyPrint)
+//        return document.xmlData()
         
     }
     

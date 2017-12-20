@@ -20,6 +20,8 @@ class OutlineController: NSViewController {
     
     @IBOutlet weak var searchField: NSSearchField!
     
+    var disposeBag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
@@ -33,7 +35,7 @@ class OutlineController: NSViewController {
             if document != nil {
                 self.outlineView.reloadData()
             }
-        }
+        } .disposed(by: disposeBag)
         
         windowControllerChanged { [unowned self] windowController in
             if let controller = windowController {
@@ -44,7 +46,7 @@ class OutlineController: NSViewController {
         }
         
         let _ = outlineView.rx.selectionDidChange.subscribe(onNext: { indexSet in
-            self.document.nodeSubject.onNext(indexSet.map {
+            self.document.nodeSelectionSubject.onNext(indexSet.map {
                 return self.outlineView.item(atRow: $0) as! KeyNode
             })
         })

@@ -37,6 +37,7 @@
 		F3E831381FBBE39E00EF533C /* AppExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E831371FBBE39E00EF533C /* AppExtensions.swift */; };
 		F3F7F6591FBC58A8004AA913 /* OutlineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F7F6571FBC58A8004AA913 /* OutlineController.swift */; };
 		F3F8D6131FE7D66C0013B9DE /* traduki_public.pem in Resources */ = {isa = PBXBuildFile; fileRef = F3F8D6121FE7D66C0013B9DE /* traduki_public.pem */; };
+		F3F8D6181FEA68B00013B9DE /* TextViewDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F8D6171FEA68B00013B9DE /* TextViewDelegateProxy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -97,6 +98,8 @@
 		F3E831371FBBE39E00EF533C /* AppExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppExtensions.swift; sourceTree = "<group>"; };
 		F3F7F6571FBC58A8004AA913 /* OutlineController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutlineController.swift; sourceTree = "<group>"; };
 		F3F8D6121FE7D66C0013B9DE /* traduki_public.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = traduki_public.pem; sourceTree = "<group>"; };
+		F3F8D6171FEA68B00013B9DE /* TextViewDelegateProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewDelegateProxy.swift; sourceTree = "<group>"; };
+		F3F8D6191FEA77F20013B9DE /* Traduki.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Traduki.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				F350C8EF1FCFF31C003E6B94 /* OutlineViewDelegateProxy.swift */,
+				F3F8D6171FEA68B00013B9DE /* TextViewDelegateProxy.swift */,
 			);
 			path = DelegateProxies;
 			sourceTree = "<group>";
@@ -167,6 +171,7 @@
 		F38D071E1FB18B680061B097 /* TradukiEditor */ = {
 			isa = PBXGroup;
 			children = (
+				F3F8D6191FEA77F20013B9DE /* Traduki.entitlements */,
 				F350C8F51FD12DFD003E6B94 /* DelegateProxies */,
 				F3A18D941FBC2123003BCE4F /* Welcome */,
 				F3F7F6541FBC5739004AA913 /* Supporting Files */,
@@ -412,6 +417,7 @@
 				F34AC8F01FBAAB01009CE7E8 /* AppDelegate.swift in Sources */,
 				F3E831361FBBDFC500EF533C /* WelcomeCloseButton.swift in Sources */,
 				F35E11C61FBEC2C600AC82F7 /* SplitView.swift in Sources */,
+				F3F8D6181FEA68B00013B9DE /* TextViewDelegateProxy.swift in Sources */,
 				F3E831321FBB054900EF533C /* WelcomeViewController.swift in Sources */,
 				F38B9B641FD7DA5B0048D090 /* XMLReader.swift in Sources */,
 				F350C8F91FD1408D003E6B94 /* Defines.swift in Sources */,

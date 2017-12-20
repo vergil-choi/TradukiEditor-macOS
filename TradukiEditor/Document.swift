@@ -13,7 +13,8 @@ import RxCocoa
 class Document: NSDocument {
     
     var traduki = Traduki()
-    var nodeSubject = PublishSubject<[KeyNode]?>()
+    var nodeSelectionSubject = PublishSubject<[KeyNode]?>()
+    var nodeEditingSubject = PublishSubject<KeyNode?>()
     
     override init() {
         super.init()
@@ -75,7 +76,7 @@ extension NSViewController {
         return view.window?.windowController?.document as? Document
     }
     
-    func documentDidChange(_ block: ((Document?) -> Void)?) {
-        let _  = self.rx.observe(Document.self, "view.window.windowController.document").subscribe(onNext: block)
+    func documentDidChange(_ block: ((Document?) -> Void)?) -> Disposable {
+        return self.rx.observe(Document.self, "view.window.windowController.document").subscribe(onNext: block)
     }
 }
