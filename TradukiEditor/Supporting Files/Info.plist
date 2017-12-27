@@ -40,7 +40,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>2.0.0-alpha</string>
 	<key>CFBundleVersion</key>
-	<string>171219</string>
+	<string>171221</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>$(MACOSX_DEPLOYMENT_TARGET)</string>
 	<key>NSHumanReadableCopyright</key>

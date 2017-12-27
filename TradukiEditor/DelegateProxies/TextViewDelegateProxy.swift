@@ -32,7 +32,6 @@ class TextViewDelegateProxy: DelegateProxy<NSTextView, NSTextViewDelegate>, Dele
     static func currentDelegate(for object: TextViewDelegateProxy.ParentObject) -> TextViewDelegateProxy.Delegate? {
         return object.delegate
     }
-    
 }
 
 extension Reactive where Base: NSTextView {
@@ -49,19 +48,19 @@ extension Reactive where Base: NSTextView {
             .takeUntil(deallocated)
     }
     
-    var didBecomeFirstResponder: Observable<Void> {
+    var didBecomeFirstResponder: Observable<Bool> {
         return base
             .rx
             .methodInvoked(#selector(NSTextView.becomeFirstResponder))
-            .map({ _ in })
+            .map({ _ in true })
             .takeUntil(deallocated)
     }
     
-    var didResignFirstResponder: Observable<Void> {
+    var didResignFirstResponder: Observable<Bool> {
         return base
             .rx
             .methodInvoked(#selector(NSTextView.resignFirstResponder))
-            .map({ _ in })
+            .map({ _ in false })
             .takeUntil(deallocated)
     }
 }

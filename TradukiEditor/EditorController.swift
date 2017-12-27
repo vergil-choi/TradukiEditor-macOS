@@ -42,7 +42,6 @@ class EditorController: NSViewController {
             }).disposed(by: self.disposeBag)
             self.addTabButtons()
         } .disposed(by: disposeBag)
-        
     }
     
     override func viewDidLayout() {
@@ -185,13 +184,16 @@ extension EditorController: NSTableViewDelegate, NSTableViewDataSource {
                 NSAnimationContext.endGrouping()
             }).disposed(by: cell.disposeBag)
             
-            cell.textView.rx.didBecomeFirstResponder.subscribe(onNext: { [unowned self] in
-                self.document.nodeEditingSubject.onNext(tuple.node)
-            }).disposed(by: cell.disposeBag)
+            // Temporarily set it as async to avoid warnings
+//            Observable.of(cell.textView.rx.didBecomeFirstResponder, cell.textView.rx.didResignFirstResponder).merge().observeOn(MainScheduler.asyncInstance).subscribe(onNext: { [unowned self] first in
+//                
+//            }).disposed(by: cell.disposeBag)
+            if nodes!.count > 1 {
+                cell.textView.rx.didBecomeFirstResponder.subscribe(onNext: { [unowned self] first in
+                    self.document.nodeEditingSubject.onNext(first ? tuple.node : nil)
+                }).disposed(by: cell.disposeBag)
+            }
             
-            cell.textView.rx.didResignFirstResponder.subscribe(onNext: { [unowned self] in
-                self.document.nodeEditingSubject.onNext(nil)
-            }).disposed(by: cell.disposeBag)
             
             return cell
         }
@@ -206,7 +208,7 @@ class EditorCellView: NSTableCellView {
     
     @IBOutlet weak var baseView: NSView!
     @IBOutlet weak var keyLabel: NSTextField!
-    @IBOutlet var textView: NSTextView!
+    var textView: NSTextView!
     
 
     var disposeBag = DisposeBag()
@@ -227,8 +229,27 @@ class EditorCellView: NSTableCellView {
         keyLabel.layer!.shadowOffset = NSSize(width: 1, height: 1)
         keyLabel.layer!.shadowRadius = 1
         
+        textView = NSTextView()
+        textView.isRichText = false
+        textView.usesFontPanel = false
+        textView.isGrammarCheckingEnabled = false
+        textView.isAutomaticSpellingCorrectionEnabled = false
+        textView.isAutomaticQuoteSubstitutionEnabled = false
+        textView.isAutomaticDashSubstitutionEnabled = false
         textView.typingAttributes = [.font: NSFont.systemFont(ofSize: 14, weight: .light)]
 //        textView.placeholderString = "Translation here"
+        
+        baseView.translatesAutoresizingMaskIntoConstraints = false
+        textView.translatesAutoresizingMaskIntoConstraints = false
+        
+        baseView.addSubview(textView)
+        
+        NSLayoutConstraint.activate([
+            textView.leftAnchor.constraint(equalTo: baseView.leftAnchor, constant: 40),
+            textView.rightAnchor.constraint(equalTo: baseView.rightAnchor, constant: -40),
+            textView.topAnchor.constraint(equalTo: baseView.topAnchor, constant: 50),
+            textView.bottomAnchor.constraint(equalTo: baseView.bottomAnchor, constant: -30)
+        ])
     }
 }
 

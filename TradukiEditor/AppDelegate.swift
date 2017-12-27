@@ -15,7 +15,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationWillFinishLaunching(_ notification: Notification) {
         let _ = DocumentController()
-        
     }
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
