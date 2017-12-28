@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8A715C833D3D261793D8DB81 /* Pods_Project_TradukiEditor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD4EC071893131DC9918AB1E /* Pods_Project_TradukiEditor.framework */; };
+		F31E04521FF511C500B7CA46 /* tdk.icns in Resources */ = {isa = PBXBuildFile; fileRef = F31E04511FF511C400B7CA46 /* tdk.icns */; };
 		F34AC8F01FBAAB01009CE7E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38D071F1FB18B680061B097 /* AppDelegate.swift */; };
 		F34AC8F61FBAB2D3009CE7E8 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38D073D1FB18BF80061B097 /* Configuration.swift */; };
 		F34AC8F81FBAB2D3009CE7E8 /* JSONWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38D073F1FB18BF80061B097 /* JSONWriter.swift */; };
@@ -66,6 +67,7 @@
 		ACFE8135681D0F3E13D92D36 /* Pods_Project_Traduki.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project_Traduki.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF8BE93B7CA6F564F93A338E /* Pods-Project-TradukiEditorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project-TradukiEditorTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Project-TradukiEditorTests/Pods-Project-TradukiEditorTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DD4EC071893131DC9918AB1E /* Pods_Project_TradukiEditor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project_TradukiEditor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F31E04511FF511C400B7CA46 /* tdk.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = tdk.icns; sourceTree = "<group>"; };
 		F34AC8FF1FBACFC3009CE7E8 /* XMLWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMLWriter.swift; sourceTree = "<group>"; };
 		F34AC9191FBADED1009CE7E8 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		F350C8EF1FCFF31C003E6B94 /* OutlineViewDelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutlineViewDelegateProxy.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 		F3F7F6541FBC5739004AA913 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F31E04511FF511C400B7CA46 /* tdk.icns */,
 				F3F8D6121FE7D66C0013B9DE /* traduki_public.pem */,
 				F38D07251FB18B680061B097 /* Assets.xcassets */,
 				F38D072A1FB18B680061B097 /* Info.plist */,
@@ -325,6 +328,7 @@
 			files = (
 				F38D07261FB18B680061B097 /* Assets.xcassets in Resources */,
 				F3F8D6131FE7D66C0013B9DE /* traduki_public.pem in Resources */,
+				F31E04521FF511C500B7CA46 /* tdk.icns in Resources */,
 				F38D07291FB18B680061B097 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

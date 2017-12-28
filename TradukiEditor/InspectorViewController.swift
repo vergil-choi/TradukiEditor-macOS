@@ -145,11 +145,13 @@ class PlcCellView: InspectorCellView {
 
 class OccCellView: InspectorCellView {
     
+    @IBOutlet weak var fileIcon: NSImageView!
     @IBOutlet weak var label: NSTextField!
     
     override func prepare(for data: Any) {
         if let d = data as? String {
             label.stringValue = d
+            fileIcon.image = NSWorkspace.shared.icon(forFileType: d.components(separatedBy: ".").last!)
         }
     }
 }

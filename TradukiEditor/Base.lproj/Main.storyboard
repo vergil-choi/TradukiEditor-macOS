@@ -1575,7 +1575,7 @@
                                                                                 <constraint firstAttribute="width" constant="20" id="0LT-Gy-df2"/>
                                                                                 <constraint firstAttribute="height" constant="20" id="njm-uG-Qdk"/>
                                                                             </constraints>
-                                                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="swift-source-icon" id="ZIt-Ir-M5Q"/>
+                                                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="ZIt-Ir-M5Q"/>
                                                                         </imageView>
                                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gCJ-iG-w3X">
                                                                             <rect key="frame" x="41" y="9" width="250" height="17"/>
@@ -1594,6 +1594,7 @@
                                                                         <constraint firstItem="QEh-Ua-10x" firstAttribute="leading" secondItem="yLy-2X-2rX" secondAttribute="leading" constant="15" id="vj1-gw-9fB"/>
                                                                     </constraints>
                                                                     <connections>
+                                                                        <outlet property="fileIcon" destination="QEh-Ua-10x" id="UBt-PO-MnB"/>
                                                                         <outlet property="imageView" destination="QEh-Ua-10x" id="tvT-Te-NGn"/>
                                                                         <outlet property="label" destination="gCJ-iG-w3X" id="b9e-od-hcF"/>
                                                                     </connections>
@@ -1761,7 +1762,6 @@
         <image name="import-button" width="27" height="30"/>
         <image name="main-app-icon" width="935" height="951"/>
         <image name="scan-button" width="28" height="30"/>
-        <image name="swift-source-icon" width="20" height="20"/>
         <image name="welcome-close-button" width="20" height="20"/>
         <image name="welcome-create-button" width="30" height="39"/>
     </resources>
