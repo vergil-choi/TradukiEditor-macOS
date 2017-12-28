@@ -12,14 +12,17 @@ import RxCocoa
 
 class Document: NSDocument {
     
+    struct Satellite {
+        var nodeSelected      = PublishSubject<[KeyNode]?>()
+        var nodeEditing       = PublishSubject<KeyNode?>()
+        var placeholderAdding = PublishSubject<String>()
+    }
+    
     var traduki = Traduki()
-    var nodeSelectionSubject = PublishSubject<[KeyNode]?>()
-    var nodeEditingSubject = PublishSubject<KeyNode?>()
+    var satellite = Satellite()
     
     override init() {
         super.init()
-        
-        
     }
 
     override class var autosavesInPlace: Bool {

@@ -14,6 +14,7 @@ class EditorController: NSViewController {
     
     @IBOutlet weak var tableView: NSTableView!
     @IBOutlet weak var languagesView: NSScrollView!
+    var activatedTextView: NSTextView?
     var languageButtonGroup = LanguageButton.Group()
     
     var nodes: [KeyNode]? {
@@ -37,8 +38,11 @@ class EditorController: NSViewController {
         // There is strange thing that the document will be changed for four times, and 3 first times is nil.
         // May need to consider disposing every changes.
         documentDidChange { [unowned self] document in
-            document?.nodeSelectionSubject.subscribe(onNext: { [unowned self] nodes in
+            document?.satellite.nodeSelected.subscribe(onNext: { [unowned self] nodes in
                 self.nodes = nodes
+            }).disposed(by: self.disposeBag)
+            document?.satellite.placeholderAdding.subscribe(onNext: { [unowned self] placeholder in
+                self.activatedTextView?.insertText("{\(placeholder)}", replacementRange: self.activatedTextView?.selectedRange() ?? NSRange())
             }).disposed(by: self.disposeBag)
             self.addTabButtons()
         } .disposed(by: disposeBag)
@@ -188,9 +192,14 @@ extension EditorController: NSTableViewDelegate, NSTableViewDataSource {
 //            Observable.of(cell.textView.rx.didBecomeFirstResponder, cell.textView.rx.didResignFirstResponder).merge().observeOn(MainScheduler.asyncInstance).subscribe(onNext: { [unowned self] first in
 //                
 //            }).disposed(by: cell.disposeBag)
+            if row == 0 {
+                activatedTextView = cell.textView
+            }
+            
             if nodes!.count > 1 {
                 cell.textView.rx.didBecomeFirstResponder.subscribe(onNext: { [unowned self] first in
-                    self.document.nodeEditingSubject.onNext(first ? tuple.node : nil)
+                    self.document.satellite.nodeEditing.onNext(first ? tuple.node : nil)
+                    self.activatedTextView = cell.textView
                 }).disposed(by: cell.disposeBag)
             }
             

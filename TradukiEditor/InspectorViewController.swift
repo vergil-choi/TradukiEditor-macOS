@@ -29,10 +29,10 @@ class InspectorViewController: NSViewController {
         
         documentDidChange { [unowned self] document in
             if document != nil {
-                document?.nodeSelectionSubject.subscribe(onNext: { [unowned self] nodes in
+                document?.satellite.nodeSelected.subscribe(onNext: { [unowned self] nodes in
                     self.node = nodes?.first
                 }).disposed(by: self.disposeBag)
-                document?.nodeEditingSubject.subscribe(onNext: { [unowned self] node in
+                document?.satellite.nodeEditing.subscribe(onNext: { [unowned self] node in
                     self.node = node
                 }).disposed(by: self.disposeBag)
             }
@@ -67,9 +67,17 @@ extension InspectorViewController: NSTableViewDataSource, NSTableViewDelegate {
         if let m = model,
             let cell = tableView.makeView(withIdentifier: .init(m.data(forRow: row).identifier), owner: self) as? InspectorCellView {
             cell.prepare(for: m.data(forRow: row).data)
+            if let c = cell as? PlcCellView {
+                c.button.target = self
+                c.button.action = #selector(placeholderButtonClicked(_:))
+            }
             return cell
         }
         return nil
+    }
+    
+    @objc func placeholderButtonClicked(_ sender: NSButton) {
+        document!.satellite.placeholderAdding.onNext(sender.title)
     }
     
 }

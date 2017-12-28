@@ -46,7 +46,7 @@ class OutlineController: NSViewController {
         }
         
         let _ = outlineView.rx.selectionDidChange.subscribe(onNext: { indexSet in
-            self.document.nodeSelectionSubject.onNext(indexSet.map {
+            self.document.satellite.nodeSelected.onNext(indexSet.map {
                 return self.outlineView.item(atRow: $0) as! KeyNode
             })
         })
