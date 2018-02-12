@@ -33,13 +33,13 @@ let SUFFIXES = ["", ")", "\"", "]", ",", ":", ""]
 
 class SyntaxContext {
     enum Kind: Int {
-        case document = 0
-        case function = 1
-        case string = 2
+        case document   = 0
+        case function   = 1
+        case string     = 2
         case dictionary = 3
-        case argument = 4
-        case key = 5
-        case value = 6
+        case argument   = 4
+        case key        = 5
+        case value      = 6
     }
     
     var type: Kind
